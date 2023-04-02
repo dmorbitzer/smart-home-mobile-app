@@ -17,6 +17,10 @@ npm install
  expo start --tunnel
 ```
 
+### Start App with API url
+```
+API_URL="{api_url}" npx expo start --tunnel
+```
 ### Run Jest Tests
 ```
 npm run test
