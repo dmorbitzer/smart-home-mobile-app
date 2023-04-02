@@ -8,7 +8,26 @@
 * **Expo:** 6.3.2
 
 ### Developing
+#### Setup
+```
+npm install
+```
 #### Start the App
 ```
  expo start --tunnel
+```
+
+### Run Jest Tests
+```
+npm run test
+```
+
+### Run Linter
+```
+eslint .
+```
+
+### Fix Linter errors
+```
+eslint . --fix
 ```
