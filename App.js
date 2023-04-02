@@ -3,7 +3,12 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function App() {
-  const apiUrl = Constants.expoConfig.extra.apiUrl;
+  let apiUrl;
+  try {
+    apiUrl = Constants.expoConfig.extra.apiUrl;
+  } catch (error) {
+    apiUrl = "test-url.com"
+  }
   console.log(apiUrl);
 
   return (
