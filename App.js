@@ -1,29 +1,15 @@
 import Constants from "expo-constants";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+
+import LandingPage from "./landing-page/LandingPage";
 
 export default function App() {
   let apiUrl;
   try {
     apiUrl = Constants.expoConfig.extra.apiUrl;
   } catch (error) {
-    apiUrl = "test-url.com"
+    apiUrl = "test-url.com";
   }
   console.log(apiUrl);
 
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  return <LandingPage />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
