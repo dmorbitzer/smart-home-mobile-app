@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { AppBar, Box } from "@react-native-material/core";
+import { Box } from "@react-native-material/core";
 
 import SHButton from "../components/SHButton";
 import LoadingPage from "../loading-page/LoadingPage";
@@ -21,7 +21,7 @@ const SERVICES_QUERY = gql`
 
 const servicesList = [];
 
-export default function LandingPage() {
+export default function LandingPage({ navigation }) {
   const { data, loading } = useQuery(SERVICES_QUERY);
   if (loading) {
     return <LoadingPage />;
@@ -44,16 +44,9 @@ export default function LandingPage() {
         key={data.services.edges[i].node.name}
         title={data.services.edges[i].node.name}
         icon={localIcon}
-        func={() => console.log(data.services.edges[i].node.name)}
+        func={() => navigation.navigate(data.services.edges[i].node.name)}
       />
     );
   }
-  return (
-    <Box h={100}>
-      <Box mt={45} mb={10}>
-        <AppBar color="lightblue" title="Main Menu" />
-      </Box>
-      {servicesList}
-    </Box>
-  );
+  return <Box h={100}>{servicesList}</Box>;
 }
