@@ -27,9 +27,12 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator
+          screenOptions={{ headerStyle: { backgroundColor: "lightblue" } }}
+          initialRouteName="LandingPage"
+        >
           <Stack.Screen
-            name="Home"
+            name="LandingPage"
             component={LandingPage}
             options={{ title: "Main Menu" }}
           />
