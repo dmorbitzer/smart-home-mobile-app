@@ -3,26 +3,27 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Constants from "expo-constants";
 
-import LandingPage from "./landing-page/LandingPage";
+import MainMenuPage from "./landing-page/MainMenuPage";
 import CatDetection from "./services-views/cat-detection/CatDetection";
 import CatFeeding from "./services-views/cat-feeding/CatFeeding";
 import CatProfiles from "./services-views/cat-profiles/CatProfiles";
 
-const Stack = createNativeStackNavigator();
-const cache = new InMemoryCache();
-const client = new ApolloClient({
-  uri: "http://192.168.0.68:8080/api/graphql",
-  cache,
-  defaultOptions: { watchQuery: { fetchPolicy: "cache-and-network" } },
-});
 export default function App() {
   let apiUrl;
   try {
     apiUrl = Constants.expoConfig.extra.apiUrl;
   } catch (error) {
+    console.error(error);
     apiUrl = "test-url.com";
   }
   console.log(apiUrl);
+  const Stack = createNativeStackNavigator();
+  const cache = new InMemoryCache();
+  const client = new ApolloClient({
+    uri: `http://${apiUrl}:8080/api/graphql`,
+    cache,
+    defaultOptions: { watchQuery: { fetchPolicy: "cache-and-network" } },
+  });
 
   return (
     <ApolloProvider client={client}>
@@ -33,7 +34,7 @@ export default function App() {
         >
           <Stack.Screen
             name="LandingPage"
-            component={LandingPage}
+            component={MainMenuPage}
             options={{ title: "Main Menu" }}
           />
           <Stack.Screen name="Katzenprofil" component={CatProfiles} />
