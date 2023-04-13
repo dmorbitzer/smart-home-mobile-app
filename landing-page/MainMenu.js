@@ -1,14 +1,14 @@
 import { Box } from "@react-native-material/core";
 
-import MainMenuPageGetData from "./MainMenuPageGetData";
+import GetServices from "./GetServices";
 import MainMenuButton from "../components/MainMenuButton";
 import LoadingPage from "../loading-page/LoadingPage";
 
 const servicesList = [];
 
-export default function MainMenuPage({ navigation }) {
+export default function MainMenu({ navigation }) {
   //const { data, loading } = useQuery(SERVICES_QUERY);
-  const getData = MainMenuPageGetData();
+  const getData = GetServices();
   if (getData.loading) {
     return <LoadingPage />;
   }

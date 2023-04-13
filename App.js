@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Constants from "expo-constants";
 
-import MainMenuPage from "./landing-page/MainMenuPage";
+import MainMenu from "./landing-page/MainMenu";
 import CatDetection from "./services-views/cat-detection/CatDetection";
 import CatFeeding from "./services-views/cat-feeding/CatFeeding";
 import CatProfiles from "./services-views/cat-profiles/CatProfiles";
@@ -34,7 +34,7 @@ export default function App() {
         >
           <Stack.Screen
             name="LandingPage"
-            component={MainMenuPage}
+            component={MainMenu}
             options={{ title: "Main Menu" }}
           />
           <Stack.Screen name="Katzenprofil" component={CatProfiles} />

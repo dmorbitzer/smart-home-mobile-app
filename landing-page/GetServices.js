@@ -14,7 +14,7 @@ const SERVICES_QUERY = gql`
     }
   }
 `;
-export default function MainMenuPageGetData() {
+export default function GetServices() {
   const returnValue = { data: null, loading: null };
   const { data, loading } = useQuery(SERVICES_QUERY);
   if (loading) {
