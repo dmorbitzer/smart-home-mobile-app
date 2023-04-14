@@ -13,7 +13,6 @@ export default function App() {
   try {
     apiUrl = Constants.expoConfig.extra.apiUrl;
   } catch (error) {
-    console.error(error);
     apiUrl = "test-url.com";
   }
   console.log(apiUrl);
