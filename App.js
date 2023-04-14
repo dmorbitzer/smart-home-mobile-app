@@ -3,10 +3,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Constants from "expo-constants";
 
-import MainMenu from "./landing-page/MainMenu";
-import CatDetection from "./services-views/cat-detection/CatDetection";
-import CatFeeding from "./services-views/cat-feeding/CatFeeding";
-import CatProfiles from "./services-views/cat-profiles/CatProfiles";
+import CatDetection from "./src/screens/CatDetection";
+import CatFeeding from "./src/screens/CatFeeding";
+import CatProfiles from "./src/screens/CatProfiles";
+import MainMenu from "./src/screens/MainMenu";
 
 export default function App() {
   let apiUrl;
