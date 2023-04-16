@@ -3,6 +3,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 
 import IconButton from "../../../src/components/util/IconButton";
+jest.useFakeTimers();
 
 const size = 20;
 const getIcon = (title) => {

@@ -2,6 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 
 import Services from "../../../src/components/main-menu/Services";
+jest.useFakeTimers();
 
 const localData = {
   data: {
@@ -37,7 +38,6 @@ const localData = {
 };
 
 const navigation = null;
-
 test("renders Loading correctly", () => {
   const tree = renderer
     .create(<Services data={localData.data} navigation={navigation} />)

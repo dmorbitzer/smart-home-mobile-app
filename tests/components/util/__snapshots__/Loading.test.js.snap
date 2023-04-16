@@ -18,22 +18,3 @@ exports[`renders Loading correctly 1`] = `
   Loading...
 </Text>
 `;
-
-exports[`renders correctly 1`] = `
-<Text
-  style={
-    [
-      {
-        "fontSize": 16,
-        "letterSpacing": 0.5,
-      },
-      {
-        "color": "#000000",
-      },
-      undefined,
-    ]
-  }
->
-  Loading...
-</Text>
-`;
