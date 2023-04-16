@@ -35,13 +35,13 @@ exports[`renders IconButton correctly 1`] = `
         "height": undefined,
         "left": undefined,
         "margin": undefined,
-        "marginBottom": 10,
+        "marginBottom": 0,
         "marginEnd": undefined,
         "marginHorizontal": undefined,
         "marginLeft": 20,
         "marginRight": 20,
         "marginStart": undefined,
-        "marginTop": 10,
+        "marginTop": 30,
         "marginVertical": undefined,
         "maxHeight": undefined,
         "maxWidth": undefined,
@@ -79,6 +79,8 @@ exports[`renders IconButton correctly 1`] = `
         "borderBottomStartRadius": 4,
         "borderTopEndRadius": 4,
         "borderTopStartRadius": 4,
+        "justifyContent": "center",
+        "minHeight": 60,
         "shadowColor": "#000",
         "shadowOffset": {
           "height": 1,
@@ -204,7 +206,9 @@ exports[`renders IconButton correctly 1`] = `
                   "opacity": 1,
                   "textTransform": "uppercase",
                 },
-                undefined,
+                {
+                  "fontSize": 25,
+                },
               ],
             ]
           }
