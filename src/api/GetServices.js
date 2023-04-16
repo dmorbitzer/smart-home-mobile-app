@@ -1,19 +1,7 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 
-const SERVICES_QUERY = gql`
-  {
-    services {
-      edges {
-        node {
-          id
-          name
-          identifier
-          active
-        }
-      }
-    }
-  }
-`;
+import { SERVICES_QUERY } from "./constants/GetServicesQuery";
+
 export default function GetServices() {
   const returnValue = { data: null, loading: null };
   const { data, loading } = useQuery(SERVICES_QUERY);

@@ -1,5 +1,13 @@
-import { Text } from "@react-native-material/core";
+import { Text, Box } from "@react-native-material/core";
+import { ActivityIndicator } from "react-native";
 
 export default function Loading() {
-  return <Text>Loading...</Text>;
+  return (
+    <Box style={{ alignSelf: "center", marginTop: 40 }}>
+      <ActivityIndicator size="large" />
+      <Box m={10}>
+        <Text variant="h6">Loading</Text>
+      </Box>
+    </Box>
+  );
 }

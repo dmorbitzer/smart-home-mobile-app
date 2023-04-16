@@ -4,7 +4,7 @@ import { Box } from "@react-native-material/core";
 import IconButton from "../util/IconButton";
 
 const servicesList = [];
-const size = 20;
+const size = 25;
 const getIcon = (title) => {
   switch (title) {
     case "Katzenprofil":
