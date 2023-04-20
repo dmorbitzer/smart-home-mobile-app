@@ -1,5 +1,4 @@
 // Funktion um einzelne Katzenprofile zu löschen
-// Funktion um ein neues Katzenprofil zu speichern
 import { useMutation } from "@apollo/client";
 
 import { CatProfileMutation } from "./constants/DeleteCatProfileMutation";
@@ -10,11 +9,8 @@ export default function DeleteCatProfile(props) {
   runMutation({
     variables: {
       input: {
+        id: props.id,
         name: props.name,
-        birthdate: props.birthdate,
-        weight: props.weight,
-        race: props.race,
-        gender: props.gender,
       },
     },
   }).then(() => {
