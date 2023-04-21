@@ -85,33 +85,21 @@ export function DeleteCatProfile(inputId) {
 }
 
 // Funktion um ein verändertes Katzenprofil zu speichern
-export function EditCatProfile(props) {
-  const input = {};
-  if (props.id !== null) {
-    input.id = props.id;
-  }
-  if (props.name !== null) {
-    input.name = props.name;
-  }
-  if (props.birthdate !== null) {
-    input.birthdate = props.birthdate;
-  }
-  if (props.weight !== null) {
-    input.weight = props.weight;
-  }
-  if (props.race !== null) {
-    input.race = props.race;
-  }
-  if (props.gender !== null) {
-    input.gender = props.gender;
-  }
+export function EditCatProfile(id, name, birthdate, weight, race, gender) {
   const returnValue = { data: null, loading: null };
   const [runMutation, { data, loading }] = useMutation(
     UpdateCatProfileMutation
   );
   runMutation({
     variables: {
-      input,
+      input: {
+        id,
+        name,
+        birthdate,
+        weight,
+        race,
+        gender,
+      },
     },
   }).then(() => {
     if (loading) {
