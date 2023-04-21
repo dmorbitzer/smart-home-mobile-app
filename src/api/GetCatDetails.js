@@ -3,10 +3,10 @@ import { useQuery } from "@apollo/client";
 
 import { CatDetailsQuery } from "./constants/GetCatDetailsQuery";
 
-export default function GetCatDetails() {
+export default function GetCatDetails(searchId) {
   const returnValue = { data: null, loading: null };
   const { data, loading } = useQuery(CatDetailsQuery, {
-    variables: { id: "/api/cats/5" },
+    variables: { id: searchId },
   });
   if (loading) {
     returnValue.loading = loading;

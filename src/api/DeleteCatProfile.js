@@ -3,14 +3,13 @@ import { useMutation } from "@apollo/client";
 
 import { CatProfileMutation } from "./constants/DeleteCatProfileMutation";
 
-export default function DeleteCatProfile(props) {
+export default function DeleteCatProfile(inputId) {
   const returnValue = { data: null, loading: null };
   const [runMutation, { data, loading }] = useMutation(CatProfileMutation);
   runMutation({
     variables: {
       input: {
-        id: props.id,
-        name: props.name,
+        id: inputId,
       },
     },
   }).then(() => {

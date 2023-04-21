@@ -4,18 +4,30 @@ import { useMutation } from "@apollo/client";
 import { CatProfileMutation } from "./constants/EditCatProfileMutation";
 
 export default function EditCatProfile(props) {
+  const input = {};
+  if (props.id !== null) {
+    input.id = props.id;
+  }
+  if (props.name !== null) {
+    input.name = props.name;
+  }
+  if (props.birthdate !== null) {
+    input.birthdate = props.birthdate;
+  }
+  if (props.weight !== null) {
+    input.weight = props.weight;
+  }
+  if (props.race !== null) {
+    input.race = props.race;
+  }
+  if (props.gender !== null) {
+    input.gender = props.gender;
+  }
   const returnValue = { data: null, loading: null };
   const [runMutation, { data, loading }] = useMutation(CatProfileMutation);
   runMutation({
     variables: {
-      input: {
-        id: props.id,
-        name: props.name,
-        birthdate: props.birthdate,
-        weight: props.weight,
-        race: props.race,
-        gender: props.gender,
-      },
+      input,
     },
   }).then(() => {
     if (loading) {
