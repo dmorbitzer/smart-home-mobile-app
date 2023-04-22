@@ -1,6 +1,6 @@
 import { ListItem } from "@react-native-material/core";
 
-export default function CatListItem(props) {
+export default function LogListItem(props) {
   const getSecondaryText = (service) => {
     const name = props.data.cat;
     if (service === "cat_feeding") {

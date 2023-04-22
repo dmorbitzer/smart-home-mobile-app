@@ -1,6 +1,6 @@
 import { ScrollView, StyleSheet } from "react-native";
 
-import CatListItem from "./CatListItem";
+import LogListItem from "./LogListItem";
 
 export default function Services(props) {
   const buildLogs = (logs) => {
@@ -9,7 +9,7 @@ export default function Services(props) {
         return;
       }
       return (
-        <CatListItem
+        <LogListItem
           data={element.node.data}
           key={element.node.id}
           name={element.node.service.name}
