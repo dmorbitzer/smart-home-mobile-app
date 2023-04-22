@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Loading correctly 1`] = `
+<RCTScrollView
+  style={
+    {
+      "height": "80%",
+    }
+  }
+>
+  <View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onLayout={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "backgroundColor": "#ffffff",
+        }
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            {
+              "backgroundColor": "transparent",
+            },
+            {
+              "transition": "background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginVertical": 12,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "flex": 1,
+              "marginHorizontal": 16,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              selectable={false}
+              style={
+                [
+                  {
+                    "fontSize": 16,
+                    "letterSpacing": 0.15,
+                  },
+                  {
+                    "color": "#000000",
+                  },
+                  {
+                    "color": "#212121",
+                  },
+                ]
+              }
+            >
+              Katzenfütterung 2023-04-21T17:10:15+02:00
+            </Text>
+          </View>
+          <Text
+            selectable={false}
+            style={
+              [
+                {
+                  "fontSize": 14,
+                  "letterSpacing": 0.25,
+                },
+                {
+                  "color": "#000000",
+                },
+                {
+                  "color": "#666666",
+                  "marginTop": 4,
+                },
+              ]
+            }
+          >
+            Katze: Peter, Futter: Trockenfutter, Type: undefined
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#00000014",
+              "height": 1,
+              "marginEnd": undefined,
+              "marginStart": 16,
+            },
+            undefined,
+          ]
+        }
+      />
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onLayout={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "backgroundColor": "#ffffff",
+        }
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            {
+              "backgroundColor": "transparent",
+            },
+            {
+              "transition": "background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginVertical": 12,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "flex": 1,
+              "marginHorizontal": 16,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              selectable={false}
+              style={
+                [
+                  {
+                    "fontSize": 16,
+                    "letterSpacing": 0.15,
+                  },
+                  {
+                    "color": "#000000",
+                  },
+                  {
+                    "color": "#212121",
+                  },
+                ]
+              }
+            >
+              Katzenfütterung 2023-08-21T17:10:20+02:00
+            </Text>
+          </View>
+          <Text
+            selectable={false}
+            style={
+              [
+                {
+                  "fontSize": 14,
+                  "letterSpacing": 0.25,
+                },
+                {
+                  "color": "#000000",
+                },
+                {
+                  "color": "#666666",
+                  "marginTop": 4,
+                },
+              ]
+            }
+          >
+            Katze: Paul, Futter: Trockenfutter, Type: undefined
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#00000014",
+              "height": 1,
+              "marginEnd": undefined,
+              "marginStart": 16,
+            },
+            undefined,
+          ]
+        }
+      />
+    </View>
+  </View>
+</RCTScrollView>
+`;
