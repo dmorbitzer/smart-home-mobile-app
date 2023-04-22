@@ -1,6 +1,6 @@
-import GetIcon from "../../api/GetIcon";
 import { Box } from "@react-native-material/core";
 
+import GetIcon from "../../api/GetIcon";
 import IconButton from "../util/IconButton";
 
 const servicesList = [];
