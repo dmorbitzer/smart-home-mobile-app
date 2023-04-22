@@ -14,6 +14,7 @@ export default function Services(props) {
           key={element.node.id}
           name={element.node.service.name}
           time={element.node.time}
+          serviceType={element.node.service.identifier}
         />
       );
     });
