@@ -10,9 +10,9 @@ import MainMenu from "./src/screens/MainMenu";
 
 export default function App() {
   let apiUrl;
-  try {
+  if (Constants.expoConfig.extra.apiUrl) {
     apiUrl = Constants.expoConfig.extra.apiUrl;
-  } catch (error) {
+  } else {
     apiUrl = "test-url.com";
   }
   console.log(apiUrl);
