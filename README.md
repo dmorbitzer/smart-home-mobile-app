@@ -19,7 +19,7 @@ npm install
 
 ### Start App with API url
 ```
-API_URL="{api_url}" npx expo start --tunnel
+API_URL="${IP-ADDRESS}" npx expo start
 ```
 ### Run Jest Tests
 ```
