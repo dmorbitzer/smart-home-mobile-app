@@ -12,12 +12,11 @@ export default function Profiles(props) {
         title={props.data.cats.edges[i].node.name}
         leading={<Icon name="cat" size={size} />}
         trailing={() => <Icon name="chevron-right" />}
-        onTouchStart={() => {
-          console.log("TEST");
+        onPress={() => {
+          props.navigation.navigate("Katzendetailansicht", {
+            name: props.data.cats.edges[i].node.name,
+          });
         }}
-        //props.navigation.navigate("Katzendetailansicht", {
-        //  name: props.data.cats.edges[i].node.name,
-        //})
       />
     );
   }
