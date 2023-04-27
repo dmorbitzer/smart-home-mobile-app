@@ -7,5 +7,7 @@ export default function MainMenu({ navigation }) {
   if (getData.loading) {
     return <Loading />;
   }
-  return <Services data={getData.data} navigation={navigation} />;
+  return (
+    <Services data={getData.data.services.edges} navigation={navigation} />
+  );
 }
