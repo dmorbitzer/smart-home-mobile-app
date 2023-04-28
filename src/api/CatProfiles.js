@@ -25,7 +25,7 @@ export function GetCatProfiles() {
 // Funktion um die Details zu einem Katzenprofil zu laden
 export function GetCatDetails(searchId) {
   const returnValue = { data: null, loading: null };
-  const { data, loading } = useQuery(CatDetailsQuery, {
+  const { data, loading, refetch } = useQuery(CatDetailsQuery, {
     variables: { id: searchId },
   });
   if (loading) {
@@ -33,6 +33,7 @@ export function GetCatDetails(searchId) {
   }
   if (data) {
     returnValue.data = data;
+    returnValue.refetch = refetch;
   }
   return returnValue;
 }

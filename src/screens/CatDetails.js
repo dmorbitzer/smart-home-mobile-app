@@ -1,10 +1,40 @@
-import { Text } from "@react-native-material/core";
+import { Stack } from "@react-native-material/core";
+import { useState } from "react";
+import { RefreshControl, ScrollView, StyleSheet } from "react-native";
+
+import { GetCatDetails } from "../api/CatProfiles";
+import Details from "../components/cat-profiles/Details";
+import Loading from "../components/util/Loading";
 
 export default function CatDetails({ route, navigation }) {
+  const [refreshing, setRefreshing] = useState(false);
+  const getData = GetCatDetails(route.params.id);
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    getData.refetch();
+    setRefreshing(false);
+  };
+
+  if (getData.loading) {
+    return <Loading />;
+  }
   return (
-    <>
-      <Text>Katzenprofil</Text>
-      <Text>Name: {route.params.name}</Text>
-    </>
+    <Stack m={4} spacing={2}>
+      <ScrollView
+        style={styles.catDetailStyle}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
+        <Details data={getData.data} navigation={navigation} />
+      </ScrollView>
+    </Stack>
   );
 }
+
+const styles = StyleSheet.create({
+  catDetailStyle: {
+    height: "100%",
+  },
+});

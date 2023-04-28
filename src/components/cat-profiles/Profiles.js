@@ -12,8 +12,8 @@ export default function Profiles(props) {
         leading={<Icon name="cat" size={size} />}
         trailing={() => <Icon name="chevron-right" />}
         onPress={() => {
-          props.navigation.navigate("Katzendetailansicht", {
-            name: element.node.name,
+          props.navigation.navigate("Profildetails", {
+            id: element.node.id,
           });
         }}
       />
