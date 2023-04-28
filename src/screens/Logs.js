@@ -37,10 +37,12 @@ export default function Logs() {
 
   return (
     <View style={styles.logsView}>
-      <RefreshControl refreshing={refreshing} onRefresh={onRefresh}>
-        <LogList logs={getData.data.logs.edges} filter={filter} />
+
+        <LogList
+            logs={getData.data.logs.edges}
+            filter={filter}
+            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}/>
         <LogFilter changeFilter={(newFilter) => changeFilter(newFilter)} />
-      </RefreshControl>
     </View>
   );
 }
