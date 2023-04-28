@@ -11,12 +11,13 @@ import {
 // Funktion um bestehende Katzenprofile abzurufen
 export function GetCatProfiles() {
   const returnValue = { data: null, loading: null };
-  const { data, loading } = useQuery(CatProfilesQuery);
+  const { data, loading, refetch } = useQuery(CatProfilesQuery);
   if (loading) {
     returnValue.loading = loading;
   }
   if (data) {
     returnValue.data = data;
+    returnValue.refetch = refetch;
   }
   return returnValue;
 }
