@@ -21,11 +21,14 @@ export default function CatProfiles({ navigation }) {
   }
   return (
     <Stack m={4} spacing={2}>
-      <RefreshControl refreshing={refreshing} onRefresh={onRefresh}>
-        <ScrollView style={styles.catProfileList}>
-          <Profiles data={getData.data.cats.edges} navigation={navigation} />
-        </ScrollView>
-      </RefreshControl>
+      <ScrollView
+        style={styles.catProfileList}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
+        <Profiles data={getData.data.cats.edges} navigation={navigation} />
+      </ScrollView>
     </Stack>
   );
 }
