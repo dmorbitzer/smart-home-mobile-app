@@ -1,32 +1,29 @@
 import { useQuery, useMutation } from "@apollo/client";
 
 import {
-  AddCatProfileMutation,
-  CatDetailsQuery,
-  CatProfilesQuery,
-  DeleteCatProfileMutation,
-  UpdateCatProfileMutation,
-} from "./constants/CatProfileQuerys";
+  FEEDING_TIMES_QUERY,
+  FEEDING_TIME_DETAILS_QUERY,
+  ADD_FEEDING_TIME_MUTATION,
+  UPDATE_FEEDING_TIME_MUTATION,
+  DELETE_FEEDING_TIME_MUTATION,
+} from "./constants/FeedingTimeQueries";
 
-// Funktion um bestehende Katzenprofile abzurufen
-export function GetCatProfiles() {
+export function useGetFeedingTimes() {
   const returnValue = { data: null, loading: null };
-  const { data, loading, refetch } = useQuery(CatProfilesQuery);
+  const { data, loading } = useQuery(FEEDING_TIMES_QUERY);
   if (loading) {
     returnValue.loading = loading;
   }
   if (data) {
     returnValue.data = data;
-    returnValue.refetch = refetch;
   }
   return returnValue;
 }
 
-// Funktion um die Details zu einem Katzenprofil zu laden
-export function GetCatDetails(searchId) {
+export function useGetFeedingTimeDetails(id) {
   const returnValue = { data: null, loading: null };
-  const { data, loading } = useQuery(CatDetailsQuery, {
-    variables: { id: searchId },
+  const { data, loading } = useQuery(FEEDING_TIME_DETAILS_QUERY, {
+    variables: { id },
   });
   if (loading) {
     returnValue.loading = loading;
@@ -37,18 +34,18 @@ export function GetCatDetails(searchId) {
   return returnValue;
 }
 
-// Funktion um ein neues Katzenprofil zu speichern
-export function AddCatProfile(props) {
+export function useAddFeedingTime(catId, foodId, weekDay, time) {
   const returnValue = { data: null, loading: null };
-  const [runMutation, { data, loading }] = useMutation(AddCatProfileMutation);
+  const [runMutation, { data, loading }] = useMutation(
+    ADD_FEEDING_TIME_MUTATION
+  );
   runMutation({
     variables: {
       input: {
-        name: props.name,
-        birthdate: props.birthdate,
-        weight: props.weight,
-        race: props.race,
-        gender: props.gender,
+        cat: catId,
+        food: foodId,
+        weekDay,
+        time,
       },
     },
   }).then(() => {
@@ -62,16 +59,15 @@ export function AddCatProfile(props) {
   });
 }
 
-// Funktion um einzelne Katzenprofile zu löschen
-export function DeleteCatProfile(inputId) {
+export function useDeleteFeedingTime(feedingTimeId) {
   const returnValue = { data: null, loading: null };
   const [runMutation, { data, loading }] = useMutation(
-    DeleteCatProfileMutation
+    DELETE_FEEDING_TIME_MUTATION
   );
   runMutation({
     variables: {
       input: {
-        id: inputId,
+        id: feedingTimeId,
       },
     },
   }).then(() => {
@@ -85,21 +81,25 @@ export function DeleteCatProfile(inputId) {
   });
 }
 
-// Funktion um ein verändertes Katzenprofil zu speichern
-export function EditCatProfile(id, name, birthdate, weight, race, gender) {
+export function useUpdateFeedingTime(
+  feedingTimeId,
+  catId,
+  foodId,
+  weekDay,
+  time
+) {
   const returnValue = { data: null, loading: null };
   const [runMutation, { data, loading }] = useMutation(
-    UpdateCatProfileMutation
+    UPDATE_FEEDING_TIME_MUTATION
   );
   runMutation({
     variables: {
       input: {
-        id,
-        name,
-        birthdate,
-        weight,
-        race,
-        gender,
+        id: feedingTimeId,
+        cat: catId,
+        food: foodId,
+        weekDay,
+        time,
       },
     },
   }).then(() => {

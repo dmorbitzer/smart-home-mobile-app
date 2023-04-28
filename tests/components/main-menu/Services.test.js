@@ -40,7 +40,9 @@ const localData = {
 const navigation = null;
 test("renders Loading correctly", () => {
   const tree = renderer
-    .create(<Services data={localData.data} navigation={navigation} />)
+    .create(
+      <Services data={localData.data.services.edges} navigation={navigation} />
+    )
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

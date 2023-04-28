@@ -21,7 +21,9 @@ export default function IconButton(props) {
         }
         leading={props.icon}
         onTouchStart={() => {
-          props.func();
+          if (props.func) {
+            props.func();
+          }
         }}
       />
     </Box>
