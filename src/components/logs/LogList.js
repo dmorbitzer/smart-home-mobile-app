@@ -20,7 +20,9 @@ export default function Services(props) {
     });
   };
   return (
-    <ScrollView refreshControl={props.refreshControl} style={styles.logList}>{buildLogs(props.logs)}</ScrollView>
+    <ScrollView refreshControl={props.refreshControl} style={styles.logList}>
+      {buildLogs(props.logs)}
+    </ScrollView>
   );
 }
 

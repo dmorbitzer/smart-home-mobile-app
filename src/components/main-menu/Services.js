@@ -1,4 +1,3 @@
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { Box } from "@react-native-material/core";
 
 import GetIcon from "../../api/GetIcon";

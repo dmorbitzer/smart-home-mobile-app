@@ -5,8 +5,6 @@ import LogFilter from "../../../src/components/logs/LogFilter";
 jest.useFakeTimers();
 
 test("renders Loading correctly", () => {
-    const tree = renderer
-        .create(<LogFilter />)
-        .toJSON();
-    expect(tree).toMatchSnapshot();
+  const tree = renderer.create(<LogFilter />).toJSON();
+  expect(tree).toMatchSnapshot();
 });
