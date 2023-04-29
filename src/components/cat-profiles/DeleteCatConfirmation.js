@@ -6,12 +6,12 @@ import {
   Button,
 } from "@react-native-material/core";
 
-import { DeleteCatProfile, GetCatDetails } from "../../api/CatProfiles";
+import { DeleteCatProfile } from "../../api/CatProfiles";
 import Loading from "../util/Loading";
 
 export default function DeleteCatConfirmation(props) {
   if (props.id) {
-    const getData = GetCatDetails(props.id);
+    const getData = DeleteCatProfile(props.id);
     if (getData.loading) {
       return <Loading />;
     }

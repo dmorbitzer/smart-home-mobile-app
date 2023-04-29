@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-import { IconButton, Provider } from "@react-native-material/core";
+import { IconButton, Provider, useTheme } from "@react-native-material/core";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Constants from "expo-constants";
@@ -31,7 +31,7 @@ export default function App() {
   });
 
   return (
-    <Provider>
+    <Provider theme={useTheme()}>
       <ApolloProvider client={client}>
         <NavigationContainer>
           <Stack.Navigator
