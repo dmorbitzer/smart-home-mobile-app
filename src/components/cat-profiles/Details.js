@@ -6,14 +6,24 @@ import {
   IconButton,
   HStack,
   VStack,
-  Dialog,
 } from "@react-native-material/core";
 import { useState } from "react";
 
-import DeleteCatDialog from "./DeleteCatDialog";
+import DeleteCatAskModal from "./DeleteCatAskModal";
 
 export default function Details(props) {
-  const [visible, setVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const openModal = () => {
+    setShowModal(true);
+  };
+  const closeModalHandler = (choose) => {
+    setShowModal(false);
+    if (choose) {
+      props.navigation.navigate("Katzenprofil", {
+        id: props.data.cat.id,
+      });
+    }
+  };
   const date = new Date(props.data.cat.birthdate);
   const day = date.getDate();
   const month = date.getMonth() + 1;
@@ -52,17 +62,14 @@ export default function Details(props) {
           }}
         />
         <IconButton
-          onTouchStart={() => setVisible(true)}
+          onTouchStart={() => openModal()}
           icon={() => <Icon color="darkred" size={40} name="trash-can" />}
         />
       </HStack>
-      <Dialog visible={visible} onDismiss={() => setVisible(false)}>
-        <DeleteCatDialog
-          catId={props.data.cat.id}
-          handleSetVisible={setVisible}
-          navigation={props.navigation}
-        />
-      </Dialog>
+      <DeleteCatAskModal
+        showModal={showModal}
+        closeModalHandler={closeModalHandler}
+      />
     </>
   );
 }
