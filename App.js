@@ -11,6 +11,7 @@ import CatDetection from "./src/screens/CatDetection";
 import CatFeeding from "./src/screens/CatFeeding";
 import CatFeedingDetails from "./src/screens/CatFeedingDetails";
 import CatProfiles from "./src/screens/CatProfiles";
+import EditCat from "./src/screens/EditCat";
 import Logs from "./src/screens/Logs";
 import MainMenu from "./src/screens/MainMenu";
 
@@ -56,10 +57,27 @@ export default function App() {
           />
           <Stack.Screen name="Katzenfütterung" component={CatFeeding} />
           <Stack.Screen name="Katzenerkennung" component={CatDetection} />
+          <Stack.Screen name="Katzenbearbeitung" component={EditCat} />
           <Stack.Screen name="Logbuch" component={Logs} />
-          <Stack.Screen name="Katzendetailansicht" component={CatDetails} />
+          <Stack.Screen
+            name="Profildetails"
+            component={CatDetails}
+            options={({ route, navigation }) => ({
+              headerRight: () => (
+                <IconButton
+                  onPress={() =>
+                    navigation.navigate("Katzenbearbeitung", {
+                      id: route.params.id,
+                    })
+                  }
+                  icon={() => <Icon name="border-color" size={25} />}
+                />
+              ),
+            })}
+          />
           <Stack.Screen name="Hinzufügen" component={AddCat} />
           <Stack.Screen name="Fütterung" component={CatFeedingDetails} />
+          <Stack.Screen name="Katzendetailansicht" component={CatDetails} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApolloProvider>

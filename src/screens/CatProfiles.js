@@ -6,7 +6,7 @@ import { GetCatProfiles } from "../api/CatProfiles";
 import Profiles from "../components/cat-profiles/Profiles";
 import Loading from "../components/util/Loading";
 
-export default function CatProfiles({ navigation }) {
+export default function CatProfiles({ route, navigation }) {
   const [refreshing, setRefreshing] = useState(false);
   const getData = GetCatProfiles();
 
@@ -15,6 +15,11 @@ export default function CatProfiles({ navigation }) {
     getData.refetch();
     setRefreshing(false);
   };
+
+  if (route.params && route.params.refresh) {
+    onRefresh();
+    route.params.refresh = false;
+  }
 
   if (getData.loading) {
     return <Loading />;
