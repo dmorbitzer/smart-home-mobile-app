@@ -8,6 +8,7 @@ import {
   MD3LightTheme as DefaultTheme,
   Provider as PaperProvider,
 } from "react-native-paper";
+import { de, registerTranslation } from "react-native-paper-dates";
 
 import AddCat from "./src/screens/AddCat";
 import CatDetails from "./src/screens/CatDetails";
@@ -17,6 +18,8 @@ import CatFeedingDetails from "./src/screens/CatFeedingDetails";
 import CatProfiles from "./src/screens/CatProfiles";
 import Logs from "./src/screens/Logs";
 import MainMenu from "./src/screens/MainMenu";
+
+registerTranslation("de", de)
 
 export default function App() {
   let apiUrl;
