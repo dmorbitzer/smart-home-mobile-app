@@ -1,11 +1,7 @@
 export function formatDate(date) {
-  return date.toLocaleDateString("de-DE");
+  return date.toLocaleDateString();
 }
 
 export function formatDateTime(dateTime) {
-  return (
-    dateTime.toLocaleDateString("de-DE") +
-    " " +
-    dateTime.toLocaleTimeString("de-DE")
-  );
+  return dateTime.toLocaleDateString() + " " + dateTime.toLocaleTimeString();
 }

@@ -57,8 +57,12 @@ export default function LogFilterModal(props) {
                 status={useDateFilter ? "checked" : "unchecked"}
                 onPress={() => setUseDateFilter(!useDateFilter)}
               />
+              <IconButton
+                title="ok"
+                func={() => onCloseModal()}
+                type="primary"
+              />
             </View>
-            <IconButton title="ok" func={() => onCloseModal()} type="primary" />
           </View>
         </View>
       </Modal>
@@ -97,10 +101,11 @@ const styles = StyleSheet.create({
   },
   dropdownView: {
     height: "20%",
-    zIndex: 1000,
+    zIndex: 20,
   },
   datePickerView: {
     marginTop: 5,
+    height: 50,
   },
   dropdownContainer: {
     width: 200,

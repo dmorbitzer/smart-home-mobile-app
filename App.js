@@ -46,36 +46,6 @@ export default function App() {
 
   return (
     <ApolloProvider client={client}>
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{ headerStyle: { backgroundColor: "lightblue" } }}
-          initialRouteName="LandingPage"
-        >
-          <Stack.Screen
-            name="LandingPage"
-            component={MainMenu}
-            options={{ title: "Main Menu" }}
-          />
-          <Stack.Screen
-            name="Katzenprofil"
-            component={CatProfiles}
-            options={({ navigation }) => ({
-              headerRight: () => (
-                <IconButton
-                  onPress={() => navigation.navigate("Hinzufügen")}
-                  icon={() => <Icon name="plus-circle" size={25} />}
-                />
-              ),
-            })}
-          />
-          <Stack.Screen name="Katzenfütterung" component={CatFeeding} />
-          <Stack.Screen name="Katzenerkennung" component={CatDetection} />
-          <Stack.Screen name="Logbuch" component={Logs} />
-          <Stack.Screen name="Katzendetailansicht" component={CatDetails} />
-          <Stack.Screen name="Hinzufügen" component={AddCat} />
-          <Stack.Screen name="Fütterung" component={CatFeedingDetails} />
-        </Stack.Navigator>
-      </NavigationContainer>
       <PaperProvider theme={theme}>
         <NavigationContainer>
           <Stack.Navigator
@@ -104,6 +74,7 @@ export default function App() {
             <Stack.Screen name="Logbuch" component={Logs} />
             <Stack.Screen name="Katzendetailansicht" component={CatDetails} />
             <Stack.Screen name="Hinzufügen" component={AddCat} />
+            <Stack.Screen name="Fütterung" component={CatFeedingDetails} />
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>
