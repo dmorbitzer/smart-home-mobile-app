@@ -64,11 +64,10 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
     width: "80%",
-    height: "30%",
   },
   modalHeader: {
     fontWeight: "bold",
     fontSize: 20,
-    marginBottom: 20,
+    marginBottom: 10,
   },
 });
