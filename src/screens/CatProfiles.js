@@ -27,7 +27,11 @@ export default function CatProfiles({ navigation }) {
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
       >
-        <Profiles data={getData.data.cats.edges} navigation={navigation} />
+        <Profiles
+          data={getData.data.cats.edges}
+          navigation={navigation}
+          type="profile"
+        />
       </ScrollView>
     </Stack>
   );
