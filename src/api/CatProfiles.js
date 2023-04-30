@@ -64,27 +64,28 @@ export function AddCatProfile(props) {
 }
 
 // Funktion um einzelne Katzenprofile zu löschen
-export function DeleteCatProfile(inputId) {
+export function DeleteCatProfile() {
   const returnValue = { data: null, loading: null };
   const [runMutation, { data, loading }] = useMutation(
     DeleteCatProfileMutation
   );
-  runMutation({
-    variables: {
-      input: {
-        id: inputId,
+  return function (inputId) {
+    runMutation({
+      variables: {
+        input: {
+          id: inputId,
+        },
       },
-    },
-  }).then(() => {
-    if (loading) {
-      returnValue.loading = loading;
-    }
-    if (data) {
-      returnValue.data = data;
-    }
-    return returnValue;
-  });
-  return returnValue;
+    }).then(() => {
+      if (loading) {
+        returnValue.loading = loading;
+      }
+      if (data) {
+        returnValue.data = data;
+      }
+      return returnValue;
+    });
+  };
 }
 
 // Funktion um ein verändertes Katzenprofil zu speichern

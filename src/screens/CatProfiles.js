@@ -3,34 +3,22 @@ import { useState } from "react";
 import { RefreshControl, ScrollView, StyleSheet } from "react-native";
 
 import { GetCatProfiles } from "../api/CatProfiles";
-import DeleteCatFeedbackModal from "../components/cat-profiles/DeleteCatFeedbackModal";
 import Profiles from "../components/cat-profiles/Profiles";
 import Loading from "../components/util/Loading";
 
 export default function CatProfiles({ route, navigation }) {
-  const [deletedId, setDeletedId] = useState(null);
   const [refreshing, setRefreshing] = useState(false);
   const getData = GetCatProfiles();
-  const [showModal, setShowModal] = useState(false);
-  const openModal = () => {
-    setShowModal(true);
-  };
-  const closeModalHandler = () => {
-    setShowModal(false);
-  };
+
   const onRefresh = () => {
     setRefreshing(true);
     getData.refetch();
     setRefreshing(false);
   };
 
-  if (route.params) {
-    if (route.params.id && !showModal) {
-      setDeletedId(route.params.id);
-      openModal();
-      onRefresh();
-      route.params.id = undefined;
-    }
+  if (route.params && route.params.refresh) {
+    onRefresh();
+    route.params.refresh = false;
   }
 
   if (getData.loading) {
@@ -46,12 +34,6 @@ export default function CatProfiles({ route, navigation }) {
       >
         <Profiles data={getData.data.cats.edges} navigation={navigation} />
       </ScrollView>
-      <DeleteCatFeedbackModal
-        navigation={navigation}
-        deleteId={deletedId}
-        showModal={showModal}
-        closeModalHandler={closeModalHandler}
-      />
     </Stack>
   );
 }
