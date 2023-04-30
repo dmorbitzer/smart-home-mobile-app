@@ -64,7 +64,7 @@ export function AddCatProfile(props) {
 }
 
 // Funktion um einzelne Katzenprofile zu löschen
-export function DeleteCatProfile() {
+export function useDeleteCatProfile() {
   const returnValue = { data: null, loading: null };
   const [runMutation, { data, loading }] = useMutation(
     DeleteCatProfileMutation

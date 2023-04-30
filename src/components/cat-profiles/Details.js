@@ -29,7 +29,9 @@ export default function Details(props) {
       <Divider style={{ margin: 20 }} />
       <HStack fill center spacing={40}>
         <IconButton
-          icon={() => <Icon color="black" size={40} name="timer" />}
+          icon={() => (
+            <Icon color="black" size={40} name="silverware-fork-knife" />
+          )}
           onTouchStart={() => {
             props.navigation.navigate("Katzenfütterung", {
               id: props.data.cat.id,

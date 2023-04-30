@@ -2,14 +2,14 @@ import { Stack } from "@react-native-material/core";
 import { useState } from "react";
 import { RefreshControl, ScrollView, StyleSheet } from "react-native";
 
-import { DeleteCatProfile, GetCatDetails } from "../api/CatProfiles";
+import { useDeleteCatProfile, GetCatDetails } from "../api/CatProfiles";
 import Details from "../components/cat-profiles/Details";
 import Loading from "../components/util/Loading";
 
 export default function CatDetails({ route, navigation }) {
   const [refreshing, setRefreshing] = useState(false);
   const getData = GetCatDetails(route.params.catId);
-  const deleteCat = DeleteCatProfile();
+  const deleteCat = useDeleteCatProfile();
   const onDeleteCat = (catId) => {
     deleteCat(catId);
   };
