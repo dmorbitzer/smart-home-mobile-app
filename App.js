@@ -19,7 +19,7 @@ import CatProfiles from "./src/screens/CatProfiles";
 import Logs from "./src/screens/Logs";
 import MainMenu from "./src/screens/MainMenu";
 
-registerTranslation("de", de)
+registerTranslation("de", de);
 
 export default function App() {
   let apiUrl;

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Modal, StyleSheet, Text, View } from "react-native";
+import { Modal, StyleSheet, Text, View, Platform } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
-import { Checkbox } from "react-native-paper";
+import { Switch, Checkbox } from "react-native-paper";
 import { DatePickerInput } from "react-native-paper-dates";
 
 import IconButton from "../util/IconButton";
@@ -24,6 +24,27 @@ export default function LogFilterModal(props) {
     }
     props.closeModalHandler(serviceFilter, date);
   };
+
+  let useDateInput = (
+    <Checkbox.Item
+      label="Nach Datum Filtern"
+      status={useDateFilter ? "checked" : "unchecked"}
+      onPress={() => setUseDateFilter(!useDateFilter)}
+    />
+  );
+
+  if (Platform.OS === "ios") {
+    useDateInput = (
+      <View style={styles.switchContainer}>
+        <Text>Nach Datum Filtern</Text>
+        <Switch
+          value={useDateFilter}
+          onValueChange={() => setUseDateFilter(!useDateFilter)}
+          style={styles.switch}
+        />
+      </View>
+    );
+  }
   return (
     <View style={styles.centeredView}>
       <Modal animationType="slide" transparent visible={props.showModal}>
@@ -52,11 +73,7 @@ export default function LogFilterModal(props) {
                 color="red"
                 inputEnabled={false}
               />
-              <Checkbox.Item
-                label="Nach Datum Filtern"
-                status={useDateFilter ? "checked" : "unchecked"}
-                onPress={() => setUseDateFilter(!useDateFilter)}
-              />
+              {useDateInput}
               <IconButton
                 title="ok"
                 func={() => onCloseModal()}
@@ -109,5 +126,13 @@ const styles = StyleSheet.create({
   },
   dropdownContainer: {
     width: 200,
+  },
+  switchContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  switch: {
+    marginLeft: 10,
   },
 });
