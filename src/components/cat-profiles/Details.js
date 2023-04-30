@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 
 import DetailsTable from "./DetailsTable";
-import DeleteCatModal from "./deleteModal/DeleteCatModal";
+import DeleteCatModal from "./delete-modal/DeleteCatModal";
 
 export default function Details(props) {
   const [showModal, setShowModal] = useState(false);
