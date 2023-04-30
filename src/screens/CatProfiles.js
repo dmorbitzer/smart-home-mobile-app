@@ -28,7 +28,7 @@ export default function CatProfiles({ route, navigation }) {
     if (route.params.id && !showModal) {
       setDeletedId(route.params.id);
       openModal();
-      // onRefresh ausführen, wenn User im Modal auf OK klickt
+      onRefresh();
       route.params.id = undefined;
     }
   }
@@ -47,6 +47,7 @@ export default function CatProfiles({ route, navigation }) {
         <Profiles data={getData.data.cats.edges} navigation={navigation} />
       </ScrollView>
       <DeleteCatFeedbackModal
+        navigation={navigation}
         deleteId={deletedId}
         showModal={showModal}
         closeModalHandler={closeModalHandler}

@@ -84,6 +84,7 @@ export function DeleteCatProfile(inputId) {
     }
     return returnValue;
   });
+  return returnValue;
 }
 
 // Funktion um ein verändertes Katzenprofil zu speichern

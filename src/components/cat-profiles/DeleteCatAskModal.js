@@ -25,7 +25,7 @@ export default function DeleteCatAskModal(props) {
               <IconButton
                 title="Ja"
                 func={() => onCloseModal(true)}
-                type="primary"
+                variant="outlined"
               />
             </HStack>
           </View>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
     width: "80%",
-    height: "60%",
+    height: "30%",
   },
   modalHeader: {
     fontWeight: "bold",
