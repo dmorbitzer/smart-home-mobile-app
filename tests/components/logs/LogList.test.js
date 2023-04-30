@@ -16,7 +16,7 @@ const localData = {
               name: "Katzenfütterung",
               identifier: "cat_feeding",
             },
-            time: "2023-04-21T17:10:15+02:00",
+            time: "2023-04-21 17:10:15",
             data: {
               cat: "Peter",
               foodType: "Trockenfutter",
@@ -31,7 +31,7 @@ const localData = {
               name: "Katzenfütterung",
               identifier: "cat_feeding",
             },
-            time: "2023-08-21T17:10:20+02:00",
+            time: "2023-08-21 17:10:20",
             data: {
               cat: "Paul",
               foodType: "Trockenfutter",

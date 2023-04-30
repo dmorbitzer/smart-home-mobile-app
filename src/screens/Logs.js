@@ -8,16 +8,18 @@ import LogList from "../components/logs/LogList";
 import Loading from "../components/util/Loading";
 
 export default function Logs() {
-  const [filter, setFilter] = useState(null);
+  const [serviceFilter, setServiceFilter] = useState(null);
+  const [dateFilter, setDateFilter] = useState(null);
   const [refreshing, setRefreshing] = useState(false);
 
   const getData = GetLogs();
 
-  const changeFilter = (newFilter) => {
-    if (newFilter === "_") {
-      setFilter(null);
+  const changeFilter = (newServiceFilter, newDateFilter) => {
+    if (newServiceFilter === "_") {
+      setServiceFilter(null);
     } else {
-      setFilter(newFilter);
+      setServiceFilter(newServiceFilter);
+      setDateFilter(newDateFilter);
     }
   };
 
@@ -39,12 +41,17 @@ export default function Logs() {
     <View style={styles.logsView}>
       <LogList
         logs={getData.data.logs.edges}
-        filter={filter}
+        serviceFilter={serviceFilter}
+        dateFilter={dateFilter}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
       />
-      <LogFilter changeFilter={(newFilter) => changeFilter(newFilter)} />
+      <LogFilter
+        changeFilter={(newServiceFilter, newDateFilter) =>
+          changeFilter(newServiceFilter, newDateFilter)
+        }
+      />
     </View>
   );
 }

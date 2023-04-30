@@ -1,12 +1,16 @@
 import { useState } from "react";
-import { Modal, StyleSheet, Text, View } from "react-native";
+import { Modal, StyleSheet, Text, View, Platform } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
+import { Switch, Checkbox } from "react-native-paper";
+import { DatePickerInput } from "react-native-paper-dates";
 
 import IconButton from "../util/IconButton";
 
 export default function LogFilterModal(props) {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
+  const [serviceFilter, setServiceFilter] = useState(null);
+  const [dateFilter, setDateFilter] = useState(null);
+  const [useDateFilter, setUseDateFilter] = useState(false);
   const [items, setItems] = useState([
     { label: "Kein Filter", value: "_" },
     { label: "Katzenfütterung", value: "cat_feeding" },
@@ -14,8 +18,33 @@ export default function LogFilterModal(props) {
   ]);
 
   const onCloseModal = () => {
-    props.closeModalHandler(value);
+    let date = null;
+    if (useDateFilter) {
+      date = dateFilter;
+    }
+    props.closeModalHandler(serviceFilter, date);
   };
+
+  let useDateInput = (
+    <Checkbox.Item
+      label="Nach Datum Filtern"
+      status={useDateFilter ? "checked" : "unchecked"}
+      onPress={() => setUseDateFilter(!useDateFilter)}
+    />
+  );
+
+  if (Platform.OS === "ios") {
+    useDateInput = (
+      <View style={styles.switchContainer}>
+        <Text>Nach Datum Filtern</Text>
+        <Switch
+          value={useDateFilter}
+          onValueChange={() => setUseDateFilter(!useDateFilter)}
+          style={styles.switch}
+        />
+      </View>
+    );
+  }
   return (
     <View style={styles.centeredView}>
       <Modal animationType="slide" transparent visible={props.showModal}>
@@ -25,15 +54,32 @@ export default function LogFilterModal(props) {
             <View style={styles.dropdownView}>
               <DropDownPicker
                 open={open}
-                value={value}
+                value={serviceFilter}
                 items={items}
                 setOpen={setOpen}
-                setValue={setValue}
+                setValue={setServiceFilter}
                 setItems={setItems}
                 placeholder="Filter auswählen"
+                containerStyle={styles.dropdownContainer}
               />
             </View>
-            <IconButton title="ok" func={() => onCloseModal()} type="primary" />
+            <View style={styles.datePickerView}>
+              <DatePickerInput
+                locale="de"
+                label={null}
+                value={dateFilter}
+                onChange={(d) => setDateFilter(d)}
+                inputMode="start"
+                color="red"
+                inputEnabled={false}
+              />
+              {useDateInput}
+              <IconButton
+                title="ok"
+                func={() => onCloseModal()}
+                type="primary"
+              />
+            </View>
           </View>
         </View>
       </Modal>
@@ -71,6 +117,23 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   dropdownView: {
-    height: "50%",
+    height: "20%",
+    zIndex: 20,
+  },
+  datePickerView: {
+    marginTop: 5,
+    height: 50,
+  },
+  dropdownContainer: {
+    width: 200,
+  },
+  switchContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10,
+  },
+  switch: {
+    marginLeft: 10,
   },
 });
