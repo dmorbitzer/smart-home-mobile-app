@@ -51,53 +51,53 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
       <PaperProvider theme={theme}>
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{ headerStyle: { backgroundColor: "lightblue" } }}
-          initialRouteName="LandingPage"
-        >
-          <Stack.Screen
-            name="LandingPage"
-            component={MainMenu}
-            options={{ title: "Main Menu" }}
-          />
-          <Stack.Screen
-            name="Katzenprofil"
-            component={CatProfiles}
-            options={({ navigation }) => ({
-              headerRight: () => (
-                <IconButton
-                  onPress={() => navigation.navigate("Hinzufügen")}
-                  icon={() => <Icon name="plus-circle" size={25} />}
-                />
-              ),
-            })}
-          />
-          <Stack.Screen name="Katzenfütterung" component={CatFeeding} />
-          <Stack.Screen name="Katzenerkennung" component={CatDetection} />
-          <Stack.Screen name="Katzenbearbeitung" component={EditCat} />
-          <Stack.Screen name="Logbuch" component={Logs} />
-          <Stack.Screen
-            name="Profildetails"
-            component={CatDetails}
-            options={({ route, navigation }) => ({
-              headerRight: () => (
-                <IconButton
-                  onPress={() =>
-                    navigation.navigate("Katzenbearbeitung", {
-                      id: route.params.id,
-                    })
-                  }
-                  icon={() => <Icon name="border-color" size={25} />}
-                />
-              ),
-            })}
-          />
-          <Stack.Screen name="Hinzufügen" component={AddCat} />
-          <Stack.Screen name="Fütterung" component={CatFeedingDetails} />
-          <Stack.Screen name="Katzendetailansicht" component={CatDetails} />
-        </Stack.Navigator>
-      </NavigationContainer>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{ headerStyle: { backgroundColor: "lightblue" } }}
+            initialRouteName="LandingPage"
+          >
+            <Stack.Screen
+              name="LandingPage"
+              component={MainMenu}
+              options={{ title: "Main Menu" }}
+            />
+            <Stack.Screen
+              name="Katzenprofil"
+              component={CatProfiles}
+              options={({ navigation }) => ({
+                headerRight: () => (
+                  <IconButton
+                    onPress={() => navigation.navigate("Hinzufügen")}
+                    icon={() => <Icon name="plus-circle" size={25} />}
+                  />
+                ),
+              })}
+            />
+            <Stack.Screen name="Katzenfütterung" component={CatFeeding} />
+            <Stack.Screen name="Katzenerkennung" component={CatDetection} />
+            <Stack.Screen name="Katzenbearbeitung" component={EditCat} />
+            <Stack.Screen name="Logbuch" component={Logs} />
+            <Stack.Screen
+              name="Profildetails"
+              component={CatDetails}
+              options={({ route, navigation }) => ({
+                headerRight: () => (
+                  <IconButton
+                    onPress={() =>
+                      navigation.navigate("Katzenbearbeitung", {
+                        id: route.params.id,
+                      })
+                    }
+                    icon={() => <Icon name="border-color" size={25} />}
+                  />
+                ),
+              })}
+            />
+            <Stack.Screen name="Hinzufügen" component={AddCat} />
+            <Stack.Screen name="Fütterung" component={CatFeedingDetails} />
+            <Stack.Screen name="Katzendetailansicht" component={CatDetails} />
+          </Stack.Navigator>
+        </NavigationContainer>
       </PaperProvider>
     </ApolloProvider>
   );
