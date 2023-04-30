@@ -33,8 +33,8 @@ export default function Details(props) {
             <Icon color="black" size={40} name="silverware-fork-knife" />
           )}
           onTouchStart={() => {
-            props.navigation.navigate("Katzenfütterung", {
-              id: props.data.cat.id,
+            props.navigation.navigate("Fütterung", {
+              catId: props.data.cat.id,
             });
           }}
         />
