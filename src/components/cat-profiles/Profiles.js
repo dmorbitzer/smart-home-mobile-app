@@ -4,6 +4,18 @@ import { Box, ListItem } from "@react-native-material/core";
 const size = 25;
 
 export default function Profiles(props) {
+  const navigateToScreen = (event, element) => {
+    const screen =
+      props.type === "profile"
+        ? "Katzendetailansicht"
+        : props.type === "feed"
+        ? "Fütterung"
+        : "";
+    props.navigation.navigate(screen, {
+      name: element.node.name,
+      catId: element.node.id,
+    });
+  };
   const profilesList = props.data.map((element) => {
     return (
       <ListItem
@@ -11,10 +23,8 @@ export default function Profiles(props) {
         title={element.node.name}
         leading={<Icon name="cat" size={size} />}
         trailing={() => <Icon name="chevron-right" />}
-        onPress={() => {
-          props.navigation.navigate("Profildetails", {
-            id: element.node.id,
-          });
+        onPress={(event) => {
+          navigateToScreen(event, element);
         }}
       />
     );

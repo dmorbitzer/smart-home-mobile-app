@@ -9,6 +9,7 @@ import AddCat from "./src/screens/AddCat";
 import CatDetails from "./src/screens/CatDetails";
 import CatDetection from "./src/screens/CatDetection";
 import CatFeeding from "./src/screens/CatFeeding";
+import CatFeedingDetails from "./src/screens/CatFeedingDetails";
 import CatProfiles from "./src/screens/CatProfiles";
 import EditCat from "./src/screens/EditCat";
 import Logs from "./src/screens/Logs";
@@ -75,6 +76,7 @@ export default function App() {
             })}
           />
           <Stack.Screen name="Hinzufügen" component={AddCat} />
+          <Stack.Screen name="Fütterung" component={CatFeedingDetails} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApolloProvider>
