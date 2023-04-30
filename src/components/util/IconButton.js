@@ -4,6 +4,13 @@ export default function IconButton(props) {
   return (
     <Box mt={30} mb={0} ml={20} mr={20}>
       <Button
+        variant={
+          props.variant === "outlined"
+            ? "outlined"
+            : props.variant === "text"
+            ? "text"
+            : "contained"
+        }
         style={{
           minHeight: 60,
           justifyContent: "center",
@@ -17,7 +24,7 @@ export default function IconButton(props) {
             ? "lightblue"
             : props.type === "secondary"
             ? "grey"
-            : "red"
+            : "darkred"
         }
         leading={props.icon}
         onTouchStart={() => {

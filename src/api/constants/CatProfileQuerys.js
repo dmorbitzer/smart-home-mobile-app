@@ -52,6 +52,7 @@ export const CatDetailsQuery = gql`
     cat(id: $id) {
       id
       name
+      birthdate
       gender {
         name
       }
@@ -68,11 +69,6 @@ export const CatProfilesQuery = gql`
         node {
           id
           name
-          gender {
-            name
-          }
-          race
-          weight
         }
       }
     }
