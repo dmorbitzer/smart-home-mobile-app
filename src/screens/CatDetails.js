@@ -8,7 +8,7 @@ import Loading from "../components/util/Loading";
 
 export default function CatDetails({ route, navigation }) {
   const [refreshing, setRefreshing] = useState(false);
-  const getData = GetCatDetails(route.params.id);
+  const getData = GetCatDetails(route.params.catId);
   const deleteCat = DeleteCatProfile();
   const onDeleteCat = (catId) => {
     deleteCat(catId);
@@ -22,6 +22,7 @@ export default function CatDetails({ route, navigation }) {
   if (getData.loading) {
     return <Loading />;
   }
+
   return (
     <Stack m={4} spacing={2}>
       <ScrollView

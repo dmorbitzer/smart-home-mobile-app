@@ -77,6 +77,7 @@ export default function App() {
           />
           <Stack.Screen name="Hinzufügen" component={AddCat} />
           <Stack.Screen name="Fütterung" component={CatFeedingDetails} />
+          <Stack.Screen name="Katzendetailansicht" component={CatDetails} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApolloProvider>
