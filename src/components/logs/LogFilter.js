@@ -11,8 +11,8 @@ export default function Services(props) {
   const openModal = () => {
     setShowModal(true);
   };
-  const closeModalHandler = (value) => {
-    props.changeFilter(value);
+  const closeModalHandler = (newServiceFilter, newDateFilter) => {
+    props.changeFilter(newServiceFilter, newDateFilter);
     setShowModal(false);
   };
   return (

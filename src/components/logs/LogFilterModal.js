@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { Modal, StyleSheet, Text, View } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
+import { Checkbox } from "react-native-paper";
+import { DatePickerInput } from "react-native-paper-dates";
 
 import IconButton from "../util/IconButton";
 
 export default function LogFilterModal(props) {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
+  const [serviceFilter, setServiceFilter] = useState(null);
+  const [dateFilter, setDateFilter] = useState(null);
+  const [useDateFilter, setUseDateFilter] = useState(false);
   const [items, setItems] = useState([
     { label: "Kein Filter", value: "_" },
     { label: "Katzenfütterung", value: "cat_feeding" },
@@ -14,7 +18,11 @@ export default function LogFilterModal(props) {
   ]);
 
   const onCloseModal = () => {
-    props.closeModalHandler(value);
+    let date = null;
+    if (useDateFilter) {
+      date = dateFilter;
+    }
+    props.closeModalHandler(serviceFilter, date);
   };
   return (
     <View style={styles.centeredView}>
@@ -25,12 +33,29 @@ export default function LogFilterModal(props) {
             <View style={styles.dropdownView}>
               <DropDownPicker
                 open={open}
-                value={value}
+                value={serviceFilter}
                 items={items}
                 setOpen={setOpen}
-                setValue={setValue}
+                setValue={setServiceFilter}
                 setItems={setItems}
                 placeholder="Filter auswählen"
+                containerStyle={styles.dropdownContainer}
+              />
+            </View>
+            <View style={styles.datePickerView}>
+              <DatePickerInput
+                locale="de"
+                label={null}
+                value={dateFilter}
+                onChange={(d) => setDateFilter(d)}
+                inputMode="start"
+                color="red"
+                inputEnabled={false}
+              />
+              <Checkbox.Item
+                label="Nach Datum Filtern"
+                status={useDateFilter ? "checked" : "unchecked"}
+                onPress={() => setUseDateFilter(!useDateFilter)}
               />
             </View>
             <IconButton title="ok" func={() => onCloseModal()} type="primary" />
@@ -71,6 +96,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   dropdownView: {
-    height: "50%",
+    height: "20%",
+    zIndex: 1000,
+  },
+  datePickerView: {
+    marginTop: 5,
+  },
+  dropdownContainer: {
+    width: 200,
   },
 });
