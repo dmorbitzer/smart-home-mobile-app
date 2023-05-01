@@ -110,7 +110,7 @@ exports[`renders Loading correctly 1`] = `
                 ]
               }
             >
-              Katzenfütterung 2023-04-21T17:10:15+02:00
+              Katzenfütterung 21.4.2023 17:10:15
             </Text>
           </View>
           <Text
@@ -250,7 +250,7 @@ exports[`renders Loading correctly 1`] = `
                 ]
               }
             >
-              Katzenfütterung 2023-08-21T17:10:20+02:00
+              Katzenfütterung 21.8.2023 17:10:20
             </Text>
           </View>
           <Text

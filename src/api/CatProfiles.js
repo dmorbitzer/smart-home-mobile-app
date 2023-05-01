@@ -25,7 +25,7 @@ export function GetCatProfiles() {
 // Funktion um die Details zu einem Katzenprofil zu laden
 export function GetCatDetails(searchId) {
   const returnValue = { data: null, loading: null };
-  const { data, loading } = useQuery(CatDetailsQuery, {
+  const { data, loading, refetch } = useQuery(CatDetailsQuery, {
     variables: { id: searchId },
   });
   if (loading) {
@@ -33,6 +33,7 @@ export function GetCatDetails(searchId) {
   }
   if (data) {
     returnValue.data = data;
+    returnValue.refetch = refetch;
   }
   return returnValue;
 }
@@ -63,26 +64,28 @@ export function AddCatProfile(props) {
 }
 
 // Funktion um einzelne Katzenprofile zu löschen
-export function DeleteCatProfile(inputId) {
+export function useDeleteCatProfile() {
   const returnValue = { data: null, loading: null };
   const [runMutation, { data, loading }] = useMutation(
     DeleteCatProfileMutation
   );
-  runMutation({
-    variables: {
-      input: {
-        id: inputId,
+  return function (inputId) {
+    runMutation({
+      variables: {
+        input: {
+          id: inputId,
+        },
       },
-    },
-  }).then(() => {
-    if (loading) {
-      returnValue.loading = loading;
-    }
-    if (data) {
-      returnValue.data = data;
-    }
-    return returnValue;
-  });
+    }).then(() => {
+      if (loading) {
+        returnValue.loading = loading;
+      }
+      if (data) {
+        returnValue.data = data;
+      }
+      return returnValue;
+    });
+  };
 }
 
 // Funktion um ein verändertes Katzenprofil zu speichern
