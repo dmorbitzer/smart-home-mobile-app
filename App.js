@@ -30,6 +30,7 @@ export default function App() {
     apiUrl = "test-url.com";
   }
   console.log(apiUrl);
+  global.apiUrl = apiUrl;
   const Stack = createNativeStackNavigator();
   const cache = new InMemoryCache();
   const client = new ApolloClient({
@@ -78,14 +79,14 @@ export default function App() {
             <Stack.Screen name="Katzenbearbeitung" component={EditCat} />
             <Stack.Screen name="Logbuch" component={Logs} />
             <Stack.Screen
-              name="Profildetails"
+              name="Katzendetailansicht"
               component={CatDetails}
               options={({ route, navigation }) => ({
                 headerRight: () => (
                   <IconButton
                     onPress={() =>
                       navigation.navigate("Katzenbearbeitung", {
-                        id: route.params.id,
+                        id: route.params.catId,
                       })
                     }
                     icon={() => <Icon name="border-color" size={25} />}
@@ -95,7 +96,6 @@ export default function App() {
             />
             <Stack.Screen name="Hinzufügen" component={AddCat} />
             <Stack.Screen name="Fütterung" component={CatFeedingDetails} />
-            <Stack.Screen name="Katzendetailansicht" component={CatDetails} />
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>
