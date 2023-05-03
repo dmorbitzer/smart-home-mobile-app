@@ -5,7 +5,14 @@ import { useTheme } from "react-native-paper";
 
 export default function AddProfileIntelligentWaitingTime() {
   const theme = useTheme();
-  const [isWaitingTime, setIsWaitingTime] = useState(true);
+  const [formValues, setFormValues] = useState({
+    isWaitingTime: {
+      value: true,
+    },
+    startingTime: {
+      value: "",
+    },
+  });
 
   return (
     <View>
@@ -16,13 +23,15 @@ export default function AddProfileIntelligentWaitingTime() {
         <Text>Intelligente Wartezeit</Text>
         <Switch
           style={styles.waitingTimeSwitch}
-          value={isWaitingTime}
-          onValueChange={() => setIsWaitingTime(!isWaitingTime)}
+          value={formValues.isWaitingTime}
+          onValueChange={(value) => setFormValues({ isWaitingTime: !value })}
         />
       </View>
       <TextInput
         inputContainerStyle={{ backgroundColor: theme.colors.background }}
         label="Startwert in s (min. 5s)"
+        onChangeText={(value) => setFormValues({ startingTime: value })}
+        value={formValues.startingTime}
       />
     </View>
   );

@@ -17,6 +17,8 @@ export default function GetIcon(title) {
       );
     case "Filter":
       return () => <Icon name="filter" color="black" size={size} />;
+    case "Speichern":
+      return () => <Icon name="content-save" color="black" size={size} />;
     default:
       return "";
   }

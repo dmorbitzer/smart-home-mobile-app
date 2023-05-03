@@ -4,7 +4,6 @@ import { IconButton } from "@react-native-material/core";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Constants from "expo-constants";
-import { Text, TouchableOpacity } from "react-native";
 import {
   MD3LightTheme as DefaultTheme,
   Provider as PaperProvider,
@@ -47,10 +46,6 @@ export default function App() {
       background: "#ebebeb",
       disabled: "red",
     },
-  };
-
-  const handleSave = (saveProfile) => {
-    saveProfile();
   };
 
   return (
@@ -98,20 +93,7 @@ export default function App() {
                 ),
               })}
             />
-            <Stack.Screen
-              name="Hinzufügen"
-              component={AddCat}
-              options={({ navigation }) => ({
-                headerRight: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("Hinzufügen")}
-                  >
-                    <Text>Speichern</Text>
-                  </TouchableOpacity>
-                ),
-              })}
-              initialParams={(saveProfile) => handleSave(saveProfile)}
-            />
+            <Stack.Screen name="Hinzufügen" component={AddCat} />
             <Stack.Screen name="Fütterung" component={CatFeedingDetails} />
             <Stack.Screen name="Katzendetailansicht" component={CatDetails} />
           </Stack.Navigator>

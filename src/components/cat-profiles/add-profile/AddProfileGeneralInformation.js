@@ -5,19 +5,28 @@ import DropDownPicker from "react-native-dropdown-picker";
 import { useTheme } from "react-native-paper";
 import { DatePickerInput } from "react-native-paper-dates";
 
-export default function AddProfileGeneralInformation() {
+export default function AddProfileGeneralInformation(props) {
   const theme = useTheme();
-  const [sex, setSex] = useState(null);
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState([
     { label: "Weiblich", value: "female" },
     { label: "Männlich", value: "male" },
   ]);
-  const [birthdate, setBirthdate] = useState(null);
 
-  const handleChange = (e) => {
-    setSex(e.target.value);
-  };
+  const [formValues, setFormValues] = useState({
+    name: {
+      value: "",
+    },
+    birthdate: {
+      value: "",
+    },
+    sex: {
+      value: null,
+    },
+    race: {
+      value: "",
+    },
+  });
 
   return (
     <View>
@@ -29,6 +38,11 @@ export default function AddProfileGeneralInformation() {
           color={theme.colors.primary}
           inputContainerStyle={{ backgroundColor: theme.colors.background }}
           label="Tiername"
+          onChangeText={(value) => {
+            setFormValues({ name: value });
+            props.handleChange(formValues);
+          }}
+          value={formValues.name}
         />
       </View>
       <View style={styles.datePickerView}>
@@ -36,8 +50,8 @@ export default function AddProfileGeneralInformation() {
         <DatePickerInput
           locale="de"
           label={null}
-          value={birthdate}
-          onChange={(d) => setBirthdate(d)}
+          value={formValues.birthdate}
+          onChange={(value) => setFormValues({ birthdate: value })}
           inputMode="start"
           color="red"
           inputEnabled={false}
@@ -47,21 +61,22 @@ export default function AddProfileGeneralInformation() {
         <Text style={styles.dropDownLabel}>Geschlecht</Text>
         <DropDownPicker
           open={open}
-          value={sex}
+          value={formValues.sex}
           items={items}
           setOpen={setOpen}
-          setValue={setSex}
+          setValue={(value) => setFormValues({ sex: value })}
           setItems={setItems}
           placeholder="Geschlecht wählen"
           containerStyle={styles.dropdownContainer}
           style={{ backgroundColor: theme.colors.background }}
         />
       </View>
-      <View>
+      <View style={styles.raceInputView}>
         <TextInput
-          style={styles.raceInputView}
           inputContainerStyle={{ backgroundColor: theme.colors.background }}
           label="Rasse"
+          onChangeText={(value) => setFormValues({ race: value })}
+          value={formValues.race}
         />
       </View>
     </View>
@@ -94,6 +109,7 @@ const styles = StyleSheet.create({
   },
   raceInputView: {
     marginTop: 10,
+    marginBottom: -35,
   },
   dropdownContainer: {
     width: 200,
