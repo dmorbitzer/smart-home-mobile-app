@@ -69,7 +69,7 @@ test("renders cat-feeding Details correctly", () => {
       <CatFeedingManual
         onFeedNowClick={onFeedNowClick}
         feedingTimesData={localFeedingTimesData}
-        foodData={localFoodData}
+        foodData={localFoodData.data.food.edges}
         navigation={navigation}
       />
     )
