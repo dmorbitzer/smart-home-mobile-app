@@ -26,15 +26,17 @@ export default function ChooseFoodModal(props) {
             <Text style={styles.modalHeader}>
               Welches Futter wollen Sie füttern?
             </Text>
-            <DropDownPicker
-              open={open}
-              value={selectedFood}
-              items={foodList}
-              setOpen={setOpen}
-              setValue={setSelectedFood}
-              placeholder="Filter auswählen"
-              containerStyle={styles.dropdownContainer}
-            />
+            <View style={styles.dropdownView}>
+              <DropDownPicker
+                open={open}
+                value={selectedFood}
+                items={foodList}
+                setOpen={setOpen}
+                setValue={setSelectedFood}
+                placeholder="Futter auswählen"
+                containerStyle={styles.dropdownContainer}
+              />
+            </View>
             <IconButton
               disabled={!selectedFood}
               title="Füttern!"
@@ -83,5 +85,9 @@ const styles = StyleSheet.create({
   },
   dropdownContainer: {
     width: 200,
+  },
+  dropdownView: {
+    height: "20%",
+    zIndex: 20,
   },
 });
