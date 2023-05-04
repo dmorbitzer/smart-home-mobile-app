@@ -48,7 +48,7 @@ export default function CatFeedingDetails({ route, navigation }) {
           >
             <Details
               foodData={getFood.data.food.edges}
-              feedintTimesData={getFeedingTimes.data.feedingTimes.edges[i].node}
+              feedingTimesData={getFeedingTimes.data.feedingTimes.edges[i].node}
               onFeedNowClick={onFeedNowClick}
               navigation={navigation}
             />

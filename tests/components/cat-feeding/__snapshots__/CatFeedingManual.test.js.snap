@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders cat-feeding Details correctly 1`] = `
+exports[`renders cat-feeding-manual correctly 1`] = `
 [
   <View
     style={
