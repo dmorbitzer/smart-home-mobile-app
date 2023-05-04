@@ -1,6 +1,7 @@
 import { Stack } from "@react-native-material/core";
 import { useState } from "react";
 import { RefreshControl, ScrollView, StyleSheet } from "react-native";
+import Toast from "react-native-root-toast";
 
 import { useGetFeedingTimes } from "../api/FeedingTimes";
 import { useGetFood } from "../api/Food";
@@ -15,7 +16,12 @@ export default function CatFeedingDetails({ route, navigation }) {
   const feedCat = useFeedNow();
 
   const onFeedNowClick = (catId, foodId) => {
-    feedCat(global.apiUrl, catId, foodId);
+    const feedCatFeedback = feedCat(global.apiUrl, catId, foodId);
+    if (!feedCatFeedback.error && !feedCatFeedback.loading) {
+      Toast.show("Katze wird gefüttert!", {
+        duration: Toast.durations.LONG,
+      });
+    }
   };
 
   const onRefresh = () => {
