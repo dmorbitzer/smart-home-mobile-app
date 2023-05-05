@@ -46,8 +46,7 @@ export default function App() {
       ...DefaultTheme.colors,
       primary: "lightblue",
       placeholder: "white",
-      background: "red",
-      disabled: "red",
+      background: "#ebebeb",
     },
   };
 
