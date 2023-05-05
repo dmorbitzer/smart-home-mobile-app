@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import ChooseFoodModal from "./food-modal/ChooseFoodModal";
-import GetIcon from "../../api/GetIcon";
+import getIcon from "../../api/getIcon";
 import IconButton from "../util/IconButton";
 
 export default function CatFeedingManual(props) {
@@ -27,7 +27,7 @@ export default function CatFeedingManual(props) {
         func={() => {
           openModal();
         }}
-        icon={GetIcon("Food")}
+        icon={getIcon("Food")}
       />
       <ChooseFoodModal
         foodData={props.foodData}

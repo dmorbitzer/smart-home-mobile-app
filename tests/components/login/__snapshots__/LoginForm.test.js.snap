@@ -1,0 +1,539 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders LoginForm correctly 1`] = `
+<View
+  style={
+    {
+      "margin": 10,
+    }
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "fontSize": 16,
+          "letterSpacing": 0.5,
+        },
+        {
+          "color": "#000000",
+        },
+        {
+          "marginLeft": 12,
+        },
+      ]
+    }
+  >
+    Username:
+  </Text>
+  <View
+    style={
+      [
+        {
+          "marginBottom": 0,
+          "marginLeft": 12,
+          "marginTop": 12,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#f5f5f5",
+            "flexDirection": "row",
+          },
+          {
+            "borderBottomEndRadius": 4,
+            "borderBottomStartRadius": 4,
+            "borderTopEndRadius": 4,
+            "borderTopStartRadius": 4,
+          },
+          {
+            "borderBottomEndRadius": 0,
+            "borderBottomStartRadius": 0,
+          },
+          {
+            "backgroundColor": "rgba(255, 251, 254, 1)",
+          },
+        ]
+      }
+    >
+      <TextInput
+        editable={true}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        placeholderTextColor="#999999"
+        selectionColor="rgba(103, 80, 164, 1)"
+        style={
+          [
+            {
+              "color": "#212121",
+              "flex": 1,
+              "minHeight": 56,
+              "paddingEnd": 16,
+              "paddingStart": 16,
+            },
+            {
+              "fontSize": 16,
+              "letterSpacing": 0.15,
+            },
+            {
+              "paddingTop": 0,
+            },
+            undefined,
+          ]
+        }
+        username={true}
+        value=""
+      />
+      <View
+        pointerEvents="none"
+        style={
+          [
+            {
+              "backgroundColor": "#949494",
+              "bottom": 0,
+              "end": 0,
+              "height": 1,
+              "position": "absolute",
+              "start": 0,
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        pointerEvents="none"
+        style={
+          {
+            "backgroundColor": "rgba(103, 80, 164, 1)",
+            "bottom": 0,
+            "end": 0,
+            "height": 2,
+            "position": "absolute",
+            "start": 0,
+            "transform": [
+              {
+                "scaleX": 0,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        {
+          "marginHorizontal": 16,
+          "marginTop": 4,
+        }
+      }
+    />
+  </View>
+  <Text
+    collapsable={false}
+    maxFontSizeMultiplier={1.5}
+    onLayout={[Function]}
+    style={
+      {
+        "color": "rgba(179, 38, 30, 1)",
+        "fontFamily": "System",
+        "fontSize": 12,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "opacity": 0,
+        "paddingHorizontal": 12,
+        "paddingVertical": 4,
+        "textAlign": "left",
+        "transform": [],
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Username fehlt!
+  </Text>
+  <Text
+    style={
+      [
+        {
+          "fontSize": 16,
+          "letterSpacing": 0.5,
+        },
+        {
+          "color": "#000000",
+        },
+        {
+          "marginLeft": 12,
+        },
+      ]
+    }
+  >
+    Passwort:
+  </Text>
+  <View
+    style={
+      [
+        {
+          "marginBottom": 0,
+          "marginLeft": 12,
+          "marginTop": 12,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#f5f5f5",
+            "flexDirection": "row",
+          },
+          {
+            "borderBottomEndRadius": 4,
+            "borderBottomStartRadius": 4,
+            "borderTopEndRadius": 4,
+            "borderTopStartRadius": 4,
+          },
+          {
+            "borderBottomEndRadius": 0,
+            "borderBottomStartRadius": 0,
+          },
+          {
+            "backgroundColor": "rgba(255, 251, 254, 1)",
+          },
+        ]
+      }
+    >
+      <TextInput
+        current-password={true}
+        editable={true}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        password={true}
+        placeholderTextColor="#999999"
+        secureTextEntry={true}
+        selectionColor="rgba(103, 80, 164, 1)"
+        style={
+          [
+            {
+              "color": "#212121",
+              "flex": 1,
+              "minHeight": 56,
+              "paddingEnd": 16,
+              "paddingStart": 16,
+            },
+            {
+              "fontSize": 16,
+              "letterSpacing": 0.15,
+            },
+            {
+              "paddingTop": 0,
+            },
+            undefined,
+          ]
+        }
+        value=""
+      />
+      <View
+        pointerEvents="none"
+        style={
+          [
+            {
+              "backgroundColor": "#949494",
+              "bottom": 0,
+              "end": 0,
+              "height": 1,
+              "position": "absolute",
+              "start": 0,
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        pointerEvents="none"
+        style={
+          {
+            "backgroundColor": "rgba(103, 80, 164, 1)",
+            "bottom": 0,
+            "end": 0,
+            "height": 2,
+            "position": "absolute",
+            "start": 0,
+            "transform": [
+              {
+                "scaleX": 0,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        {
+          "marginHorizontal": 16,
+          "marginTop": 4,
+        }
+      }
+    />
+  </View>
+  <Text
+    collapsable={false}
+    maxFontSizeMultiplier={1.5}
+    onLayout={[Function]}
+    style={
+      {
+        "color": "rgba(179, 38, 30, 1)",
+        "fontFamily": "System",
+        "fontSize": 12,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "opacity": 0,
+        "paddingHorizontal": 12,
+        "paddingVertical": 4,
+        "textAlign": "left",
+        "transform": [],
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Passwort fehlt!
+  </Text>
+  <View
+    style={
+      {
+        "height": 40,
+      }
+    }
+  />
+  <View
+    style={
+      [
+        {
+          "backgroundColor": undefined,
+          "borderBottomColor": undefined,
+          "borderBottomEndRadius": undefined,
+          "borderBottomLeftRadius": undefined,
+          "borderBottomRightRadius": undefined,
+          "borderBottomStartRadius": undefined,
+          "borderBottomWidth": undefined,
+          "borderColor": undefined,
+          "borderEndColor": undefined,
+          "borderEndWidth": undefined,
+          "borderLeftColor": undefined,
+          "borderLeftWidth": undefined,
+          "borderRadius": undefined,
+          "borderRightColor": undefined,
+          "borderRightWidth": undefined,
+          "borderStartColor": undefined,
+          "borderStartWidth": undefined,
+          "borderStyle": undefined,
+          "borderTopColor": undefined,
+          "borderTopEndRadius": undefined,
+          "borderTopLeftRadius": undefined,
+          "borderTopRightRadius": undefined,
+          "borderTopStartRadius": undefined,
+          "borderTopWidth": undefined,
+          "borderWidth": undefined,
+          "bottom": undefined,
+          "end": undefined,
+          "height": undefined,
+          "left": undefined,
+          "margin": undefined,
+          "marginBottom": 0,
+          "marginEnd": undefined,
+          "marginHorizontal": undefined,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginStart": undefined,
+          "marginTop": 30,
+          "marginVertical": undefined,
+          "maxHeight": undefined,
+          "maxWidth": undefined,
+          "minHeight": undefined,
+          "minWidth": undefined,
+          "opacity": undefined,
+          "overflow": undefined,
+          "padding": undefined,
+          "paddingBottom": undefined,
+          "paddingEnd": undefined,
+          "paddingHorizontal": undefined,
+          "paddingLeft": undefined,
+          "paddingRight": undefined,
+          "paddingStart": undefined,
+          "paddingTop": undefined,
+          "paddingVertical": undefined,
+          "position": undefined,
+          "right": undefined,
+          "start": undefined,
+          "top": undefined,
+          "width": undefined,
+          "zIndex": undefined,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      collapsable={false}
+      onTouchStart={[Function]}
+      style={
+        {
+          "backgroundColor": "lightblue",
+          "borderBottomEndRadius": 4,
+          "borderBottomStartRadius": 4,
+          "borderTopEndRadius": 4,
+          "borderTopStartRadius": 4,
+          "justifyContent": "center",
+          "minHeight": 60,
+          "shadowColor": "#000",
+          "shadowOffset": {
+            "height": 1,
+            "width": 0,
+          },
+          "shadowOpacity": 0.2,
+          "shadowRadius": 1.41,
+        }
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "borderBottomEndRadius": 4,
+              "borderBottomStartRadius": 4,
+              "borderTopEndRadius": 4,
+              "borderTopStartRadius": 4,
+              "overflow": "hidden",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onLayout={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "height": 36,
+                "justifyContent": "center",
+                "minWidth": 64,
+                "paddingEnd": 16,
+                "paddingStart": 12,
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                {
+                  "backgroundColor": "transparent",
+                },
+                {
+                  "transition": "background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              [
+                {
+                  "marginEnd": 8,
+                  "opacity": 1,
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text />
+          </View>
+          <Text
+            selectable={false}
+            style={
+              [
+                {
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.25,
+                  "textTransform": "uppercase",
+                },
+                {
+                  "color": "#000000",
+                },
+                [
+                  {
+                    "color": "#000000",
+                  },
+                  {
+                    "opacity": 1,
+                    "textTransform": "uppercase",
+                  },
+                  {
+                    "fontSize": 25,
+                  },
+                ],
+              ]
+            }
+          >
+            Login
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

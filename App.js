@@ -18,6 +18,7 @@ import CatFeeding from "./src/screens/CatFeeding";
 import CatFeedingDetails from "./src/screens/CatFeedingDetails";
 import CatProfiles from "./src/screens/CatProfiles";
 import EditCat from "./src/screens/EditCat";
+import Login from "./src/screens/Login";
 import Logs from "./src/screens/Logs";
 import MainMenu from "./src/screens/MainMenu";
 
@@ -46,7 +47,6 @@ export default function App() {
       primary: "lightblue",
       placeholder: "white",
       background: "#ebebeb",
-      disabled: "red",
     },
   };
 
@@ -98,6 +98,16 @@ export default function App() {
               />
               <Stack.Screen name="Hinzufügen" component={AddCat} />
               <Stack.Screen name="Fütterung" component={CatFeedingDetails} />
+              <Stack.Screen
+                name="Login"
+                component={Login}
+                options={{
+                  headerLeft: null,
+                  headerBackTitleVisible: false,
+                  headerBackVisible: false,
+                  gestureEnabled: false,
+                }}
+              />
             </Stack.Navigator>
           </NavigationContainer>
         </PaperProvider>

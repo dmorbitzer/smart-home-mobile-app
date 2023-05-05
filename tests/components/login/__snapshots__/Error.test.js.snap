@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Error with hasError correctly 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#f56653",
+      "borderRadius": 10,
+      "height": 40,
+      "justifyContent": "center",
+      "marginLeft": 12,
+    }
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "fontSize": 16,
+          "letterSpacing": 0.5,
+        },
+        {
+          "color": "#000000",
+        },
+        {
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Username oder Passwort ungültig!
+  </Text>
+</View>
+`;
+
+exports[`renders Error without hasError correctly 1`] = `
+<View
+  style={
+    {
+      "height": 40,
+    }
+  }
+/>
+`;
