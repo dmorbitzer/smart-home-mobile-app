@@ -39,28 +39,24 @@ export function GetCatDetails(searchId) {
 }
 
 // Funktion um ein neues Katzenprofil zu speichern
-export function AddCatProfile(props) {
-  const returnValue = { data: null, loading: null };
-  const [runMutation, { data, loading }] = useMutation(AddCatProfileMutation);
-  runMutation({
-    variables: {
-      input: {
-        name: props.name,
-        birthdate: props.birthdate,
-        weight: props.weight,
-        race: props.race,
-        gender: props.gender,
+export function useAddCatProfile() {
+  const [runMutation] = useMutation(AddCatProfileMutation);
+
+  return async (name, birthdate, weight, race, gender) => {
+    const response = await runMutation({
+      variables: {
+        input: {
+          name,
+          birthdate,
+          weight,
+          race,
+          gender,
+        },
       },
-    },
-  }).then(() => {
-    if (loading) {
-      returnValue.loading = loading;
-    }
-    if (data) {
-      returnValue.data = data;
-    }
-    return returnValue;
-  });
+    });
+
+    return response;
+  };
 }
 
 // Funktion um einzelne Katzenprofile zu löschen

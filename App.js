@@ -62,7 +62,7 @@ export default function App() {
               <Stack.Screen
                 name="LandingPage"
                 component={MainMenu}
-                options={{ title: "Menü" }}
+                options={{ title: "Main Menu" }}
               />
               <Stack.Screen
                 name="Katzenprofil"
