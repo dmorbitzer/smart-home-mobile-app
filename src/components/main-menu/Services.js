@@ -21,7 +21,7 @@ export default function Services(props) {
     <IconButton
       key="Logout"
       title="Logout"
-      type="primary"
+      type="secondary"
       func={() => props.navigation.navigate("Login")}
       icon={getIcon("Logout")}
     />
