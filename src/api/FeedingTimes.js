@@ -60,26 +60,28 @@ export function useAddFeedingTime(catId, foodId, weekDay, time) {
   });
 }
 
-export function useDeleteFeedingTime(feedingTimeId) {
+export function useDeleteFeedingTime() {
   const returnValue = { data: null, loading: null };
   const [runMutation, { data, loading }] = useMutation(
     DELETE_FEEDING_TIME_MUTATION
   );
-  runMutation({
-    variables: {
-      input: {
-        id: feedingTimeId,
+  return function (inputId) {
+    runMutation({
+      variables: {
+        input: {
+          id: inputId,
+        },
       },
-    },
-  }).then(() => {
-    if (loading) {
-      returnValue.loading = loading;
-    }
-    if (data) {
-      returnValue.data = data;
-    }
-    return returnValue;
-  });
+    }).then(() => {
+      if (loading) {
+        returnValue.loading = loading;
+      }
+      if (data) {
+        returnValue.data = data;
+      }
+      return returnValue;
+    });
+  };
 }
 
 export function useUpdateFeedingTime(

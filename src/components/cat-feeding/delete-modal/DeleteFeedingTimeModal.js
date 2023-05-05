@@ -4,15 +4,12 @@ import { Modal, StyleSheet, Text, View } from "react-native";
 import IconButton from "../../util/IconButton";
 
 export default function DeleteFeedingTimeModal(props) {
-  const onCloseModal = () => {
-    props.closeModalHandler(true);
-  };
   const chooseDeleteFeedingTime = (choose) => {
     if (choose) {
       props.deleteFeedingTime(props.feedingTimeId);
-      onCloseModal();
+      props.closeModalHandler();
     } else {
-      onCloseModal();
+      props.closeModalHandler();
     }
   };
   return (

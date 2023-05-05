@@ -3,7 +3,7 @@ import { useState } from "react";
 import { RefreshControl, ScrollView, StyleSheet } from "react-native";
 import Toast from "react-native-root-toast";
 
-import { useGetFeedingTimes } from "../api/FeedingTimes";
+import { useDeleteFeedingTime, useGetFeedingTimes } from "../api/FeedingTimes";
 import { useGetFood } from "../api/Food";
 import useFeedNow from "../api/useFeedNow";
 import Details from "../components/cat-feeding/Details";
@@ -14,9 +14,10 @@ export default function CatFeedingDetails({ route, navigation }) {
   const getFeedingTimes = useGetFeedingTimes();
   const getFood = useGetFood();
   const feedCat = useFeedNow();
+  const deleteFeedingTime = useDeleteFeedingTime();
 
   const onDeleteFeedingTime = (feedingTimeId) => {
-    console.log("Delete:", feedingTimeId);
+    deleteFeedingTime(feedingTimeId);
     Toast.show("Fütterungszeit wurde gelöscht!", {
       duration: Toast.durations.LONG,
     });
