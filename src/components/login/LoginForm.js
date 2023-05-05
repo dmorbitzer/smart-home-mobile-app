@@ -1,4 +1,4 @@
-import {TextInput, Text} from "@react-native-material/core";
+import { TextInput, Text } from "@react-native-material/core";
 import { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { HelperText, useTheme } from "react-native-paper";
@@ -8,7 +8,7 @@ import getIcon from "../../api/getIcon";
 import IconButton from "../util/IconButton";
 
 export default function LoginForm(props) {
-    const theme = useTheme();
+  const theme = useTheme();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [hasUsernameError, setUsernameError] = useState(false);
@@ -17,8 +17,6 @@ export default function LoginForm(props) {
   const onLogin = () => {
     setUsernameError(username.length === 0);
     setPasswordError(password.length === 0);
-
-    console.log(hasUsernameError);
 
     if (username.length === 0 || password.length === 0) {
       return;
@@ -30,8 +28,8 @@ export default function LoginForm(props) {
     <View style={styles.formView}>
       <Text style={styles.label}>Username:</Text>
       <TextInput
-          color={theme.colors.primary}
-          inputContainerStyle={{ backgroundColor: theme.colors.background }}
+        color={theme.colors.primary}
+        inputContainerStyle={{ backgroundColor: theme.colors.background }}
         style={styles.input}
         editable
         value={username}
@@ -43,8 +41,8 @@ export default function LoginForm(props) {
       </HelperText>
       <Text style={styles.label}>Passwort:</Text>
       <TextInput
-          color={theme.colors.primary}
-          inputContainerStyle={{ backgroundColor: theme.colors.background }}
+        color={theme.colors.primary}
+        inputContainerStyle={{ backgroundColor: theme.colors.background }}
         style={styles.input}
         editable
         value={password}
