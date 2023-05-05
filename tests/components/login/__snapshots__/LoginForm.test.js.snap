@@ -26,23 +26,115 @@ exports[`renders LoginForm correctly 1`] = `
   >
     Username:
   </Text>
-  <TextInput
-    editable={true}
-    onChangeText={[Function]}
+  <View
     style={
-      {
-        "borderWidth": 1,
-        "fontSize": 25,
-        "height": 50,
-        "marginBottom": 0,
-        "marginLeft": 12,
-        "marginTop": 12,
-        "padding": 10,
-      }
+      [
+        {
+          "marginBottom": 0,
+          "marginLeft": 12,
+          "marginTop": 12,
+        },
+      ]
     }
-    username={true}
-    value=""
-  />
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#f5f5f5",
+            "flexDirection": "row",
+          },
+          {
+            "borderBottomEndRadius": 4,
+            "borderBottomStartRadius": 4,
+            "borderTopEndRadius": 4,
+            "borderTopStartRadius": 4,
+          },
+          {
+            "borderBottomEndRadius": 0,
+            "borderBottomStartRadius": 0,
+          },
+          {
+            "backgroundColor": "rgba(255, 251, 254, 1)",
+          },
+        ]
+      }
+    >
+      <TextInput
+        editable={true}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        placeholderTextColor="#999999"
+        selectionColor="rgba(103, 80, 164, 1)"
+        style={
+          [
+            {
+              "color": "#212121",
+              "flex": 1,
+              "minHeight": 56,
+              "paddingEnd": 16,
+              "paddingStart": 16,
+            },
+            {
+              "fontSize": 16,
+              "letterSpacing": 0.15,
+            },
+            {
+              "paddingTop": 0,
+            },
+            undefined,
+          ]
+        }
+        username={true}
+        value=""
+      />
+      <View
+        pointerEvents="none"
+        style={
+          [
+            {
+              "backgroundColor": "#949494",
+              "bottom": 0,
+              "end": 0,
+              "height": 1,
+              "position": "absolute",
+              "start": 0,
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        pointerEvents="none"
+        style={
+          {
+            "backgroundColor": "rgba(103, 80, 164, 1)",
+            "bottom": 0,
+            "end": 0,
+            "height": 2,
+            "position": "absolute",
+            "start": 0,
+            "transform": [
+              {
+                "scaleX": 0,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        {
+          "marginHorizontal": 16,
+          "marginTop": 4,
+        }
+      }
+    />
+  </View>
   <Text
     collapsable={false}
     maxFontSizeMultiplier={1.5}
@@ -84,25 +176,117 @@ exports[`renders LoginForm correctly 1`] = `
   >
     Passwort:
   </Text>
-  <TextInput
-    current-password={true}
-    editable={true}
-    onChangeText={[Function]}
-    password={true}
-    secureTextEntry={true}
+  <View
     style={
-      {
-        "borderWidth": 1,
-        "fontSize": 25,
-        "height": 50,
-        "marginBottom": 0,
-        "marginLeft": 12,
-        "marginTop": 12,
-        "padding": 10,
-      }
+      [
+        {
+          "marginBottom": 0,
+          "marginLeft": 12,
+          "marginTop": 12,
+        },
+      ]
     }
-    value=""
-  />
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#f5f5f5",
+            "flexDirection": "row",
+          },
+          {
+            "borderBottomEndRadius": 4,
+            "borderBottomStartRadius": 4,
+            "borderTopEndRadius": 4,
+            "borderTopStartRadius": 4,
+          },
+          {
+            "borderBottomEndRadius": 0,
+            "borderBottomStartRadius": 0,
+          },
+          {
+            "backgroundColor": "rgba(255, 251, 254, 1)",
+          },
+        ]
+      }
+    >
+      <TextInput
+        current-password={true}
+        editable={true}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        password={true}
+        placeholderTextColor="#999999"
+        secureTextEntry={true}
+        selectionColor="rgba(103, 80, 164, 1)"
+        style={
+          [
+            {
+              "color": "#212121",
+              "flex": 1,
+              "minHeight": 56,
+              "paddingEnd": 16,
+              "paddingStart": 16,
+            },
+            {
+              "fontSize": 16,
+              "letterSpacing": 0.15,
+            },
+            {
+              "paddingTop": 0,
+            },
+            undefined,
+          ]
+        }
+        value=""
+      />
+      <View
+        pointerEvents="none"
+        style={
+          [
+            {
+              "backgroundColor": "#949494",
+              "bottom": 0,
+              "end": 0,
+              "height": 1,
+              "position": "absolute",
+              "start": 0,
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        pointerEvents="none"
+        style={
+          {
+            "backgroundColor": "rgba(103, 80, 164, 1)",
+            "bottom": 0,
+            "end": 0,
+            "height": 2,
+            "position": "absolute",
+            "start": 0,
+            "transform": [
+              {
+                "scaleX": 0,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        {
+          "marginHorizontal": 16,
+          "marginTop": 4,
+        }
+      }
+    />
+  </View>
   <Text
     collapsable={false}
     maxFontSizeMultiplier={1.5}

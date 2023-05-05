@@ -578,7 +578,7 @@ exports[`renders Loading correctly 1`] = `
       onTouchStart={[Function]}
       style={
         {
-          "backgroundColor": "lightblue",
+          "backgroundColor": "grey",
           "borderBottomEndRadius": 4,
           "borderBottomStartRadius": 4,
           "borderTopEndRadius": 4,
