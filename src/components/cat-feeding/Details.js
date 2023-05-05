@@ -52,7 +52,12 @@ export default function Details(props) {
         <MuiIconButton
           onTouchStart={() => {
             if (weekDay) {
-              console.log(weekDay);
+              props.navigation.navigate("NewFeedingTime", {
+                weekDay,
+                catName: props.catName,
+                catId: props.catId,
+                foodData: props.foodData,
+              });
             } else {
               Toast.show("Bitte zuerst einen Wochentag wählen!", {
                 duration: Toast.durations.SHORT,

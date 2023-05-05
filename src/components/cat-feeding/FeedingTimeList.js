@@ -1,3 +1,4 @@
+import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { Text, Box, ListItem } from "@react-native-material/core";
 
 export default function FeedingTimeList(props) {
@@ -6,12 +7,18 @@ export default function FeedingTimeList(props) {
       element.node.cat.id === props.catId &&
       element.node.weekDay === props.weekDay
     ) {
+      const time = element.node.time
+        .replace("1970-01-01T", "")
+        .replace("+01:00", "")
+        .slice(0, -3);
       return (
         <ListItem
           key={element.node.id}
-          title={element.node.time}
+          title={time}
           secondaryText={element.node.food.name}
-          leading={<Text>{element.node.weekDay}</Text>}
+          leading={
+            <Icon name="silverware-fork-knife" color="black" size={25} />
+          }
           onLongPress={() => {
             props.feedingTimeLongClick(element.node.id);
           }}

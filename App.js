@@ -12,6 +12,7 @@ import { de, registerTranslation } from "react-native-paper-dates";
 import { RootSiblingParent } from "react-native-root-siblings";
 
 import AddCat from "./src/screens/AddCat";
+import AddFeedingTime from "./src/screens/AddFeedingTime";
 import CatDetails from "./src/screens/CatDetails";
 import CatDetection from "./src/screens/CatDetection";
 import CatFeeding from "./src/screens/CatFeeding";
@@ -97,6 +98,11 @@ export default function App() {
                 })}
               />
               <Stack.Screen name="Hinzufügen" component={AddCat} />
+              <Stack.Screen
+                name="NewFeedingTime"
+                component={AddFeedingTime}
+                options={{ title: "Neue Fütterung" }}
+              />
               <Stack.Screen name="Fütterung" component={CatFeedingDetails} />
             </Stack.Navigator>
           </NavigationContainer>
