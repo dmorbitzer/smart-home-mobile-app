@@ -1,6 +1,6 @@
 import { Box } from "@react-native-material/core";
 
-import GetIcon from "../../api/GetIcon";
+import getIcon from "../../api/getIcon";
 import IconButton from "../util/IconButton";
 
 export default function Services(props) {
@@ -12,10 +12,19 @@ export default function Services(props) {
           title={element.node.name}
           type="primary"
           func={() => props.navigation.navigate(element.node.name)}
-          icon={GetIcon(element.node.name)}
+          icon={getIcon(element.node.name)}
         />
       );
     }
   });
+  servicesList.push(
+    <IconButton
+      key="Logout"
+      title="Logout"
+      type="primary"
+      func={() => props.navigation.navigate("Login")}
+      icon={getIcon("Logout")}
+    />
+  );
   return <Box h={100}>{servicesList}</Box>;
 }
