@@ -26,9 +26,7 @@ export default function Details(props) {
     setShowModal(false);
   };
   const feedingTimeLongClick = (feedingTimeId) => {
-    console.log("Set:", feedingTimeId);
     setToDeleteFeedingTimeId(feedingTimeId);
-    console.log("AfterSet:", toDeleteFeedingTimeId);
     openModal();
   };
   return (
@@ -72,7 +70,6 @@ export default function Details(props) {
         catId={props.catId}
       />
       <DeleteFeedingTimeModal
-        navigation={props.navigation}
         deleteFeedingTime={props.deleteFeedingTime}
         feedingTimeId={toDeleteFeedingTimeId}
         showModal={showModal}

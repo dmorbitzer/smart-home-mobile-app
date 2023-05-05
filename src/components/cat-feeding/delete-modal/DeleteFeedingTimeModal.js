@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { Modal, StyleSheet, View } from "react-native";
+import { HStack } from "@react-native-material/core";
+import { Modal, StyleSheet, Text, View } from "react-native";
 
-import DeleteFeedingTimeAsk from "./DeleteFeedingTimeAsk";
-import DeleteFeedingTimeFeedback from "./DeleteFeedingTimeFeedback";
+import IconButton from "../../util/IconButton";
 
 export default function DeleteFeedingTimeModal(props) {
   const onCloseModal = () => {
@@ -10,32 +9,35 @@ export default function DeleteFeedingTimeModal(props) {
   };
   const chooseDeleteFeedingTime = (choose) => {
     if (choose) {
-      console.log("Modal:", props.feedingTimeId);
       props.deleteFeedingTime(props.feedingTimeId);
-      setSwitchContent(
-        <DeleteFeedingTimeFeedback
-          onCloseModal={onCloseModal}
-          centeredView={styles.centeredView}
-          modalView={styles.modalView}
-          modalHeader={styles.modalHeader}
-        />
-      );
+      onCloseModal();
     } else {
-      props.closeModalHandler(true);
+      onCloseModal();
     }
   };
-  const [switchContent, setSwitchContent] = useState(
-    <DeleteFeedingTimeAsk
-      chooseDeleteFeedingTime={chooseDeleteFeedingTime}
-      centeredView={styles.centeredView}
-      modalView={styles.modalView}
-      modalHeader={styles.modalHeader}
-    />
-  );
   return (
     <View style={styles.centeredView}>
       <Modal animationType="slide" transparent visible={props.showModal}>
-        {switchContent}
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalHeader}>
+              Sind Sie sich sicher, dass Sie diese Fütterungszeit unwiderruflich
+              löschen wollen?
+            </Text>
+            <HStack>
+              <IconButton
+                title="Nein"
+                func={() => chooseDeleteFeedingTime(false)}
+                type="primary"
+              />
+              <IconButton
+                title="Ja"
+                func={() => chooseDeleteFeedingTime(true)}
+                variant="outlined"
+              />
+            </HStack>
+          </View>
+        </View>
       </Modal>
     </View>
   );

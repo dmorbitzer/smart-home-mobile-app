@@ -15,8 +15,11 @@ export default function CatFeedingDetails({ route, navigation }) {
   const getFood = useGetFood();
   const feedCat = useFeedNow();
 
-  const deleteFeedingTime = (feedingTimeId) => {
+  const onDeleteFeedingTime = (feedingTimeId) => {
     console.log("Delete:", feedingTimeId);
+    Toast.show("Fütterungszeit wurde gelöscht!", {
+      duration: Toast.durations.LONG,
+    });
   };
   const onFeedNowClick = (catId, foodId) => {
     const feedCatFeedback = feedCat(global.apiUrl, catId, foodId);
@@ -45,7 +48,7 @@ export default function CatFeedingDetails({ route, navigation }) {
         }
       >
         <Details
-          deleteFeedingTime={deleteFeedingTime}
+          deleteFeedingTime={onDeleteFeedingTime}
           catName={route.params.name}
           catId={route.params.catId}
           foodData={getFood.data.food.edges}
