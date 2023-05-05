@@ -15,6 +15,9 @@ export default function CatFeedingDetails({ route, navigation }) {
   const getFood = useGetFood();
   const feedCat = useFeedNow();
 
+  const deleteFeedingTime = (feedingTimeId) => {
+    console.log("Delete:", feedingTimeId);
+  };
   const onFeedNowClick = (catId, foodId) => {
     const feedCatFeedback = feedCat(global.apiUrl, catId, foodId);
     if (!feedCatFeedback.error && !feedCatFeedback.loading) {
@@ -33,30 +36,26 @@ export default function CatFeedingDetails({ route, navigation }) {
   if (getFeedingTimes.loading || getFood.loading) {
     return <Loading />;
   }
-  for (let i = 0; i < getFeedingTimes.data.feedingTimes.edges.length; i++) {
-    if (
-      getFeedingTimes.data.feedingTimes.edges[i].node.cat.id ===
-      route.params.catId
-    ) {
-      return (
-        <Stack m={4} spacing={2}>
-          <ScrollView
-            style={styles.catFeedingDetails}
-            refreshControl={
-              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-            }
-          >
-            <Details
-              foodData={getFood.data.food.edges}
-              feedingTimesData={getFeedingTimes.data.feedingTimes.edges[i].node}
-              onFeedNowClick={onFeedNowClick}
-              navigation={navigation}
-            />
-          </ScrollView>
-        </Stack>
-      );
-    }
-  }
+  return (
+    <Stack m={4} spacing={2}>
+      <ScrollView
+        style={styles.catFeedingDetails}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
+        <Details
+          deleteFeedingTime={deleteFeedingTime}
+          catName={route.params.name}
+          catId={route.params.catId}
+          foodData={getFood.data.food.edges}
+          feedingTimesData={getFeedingTimes.data.feedingTimes.edges}
+          onFeedNowClick={onFeedNowClick}
+          navigation={navigation}
+        />
+      </ScrollView>
+    </Stack>
+  );
 }
 
 const styles = StyleSheet.create({
