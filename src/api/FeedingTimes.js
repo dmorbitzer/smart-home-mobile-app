@@ -10,12 +10,13 @@ import {
 
 export function useGetFeedingTimes() {
   const returnValue = { data: null, loading: null };
-  const { data, loading } = useQuery(FEEDING_TIMES_QUERY);
+  const { data, loading, refetch } = useQuery(FEEDING_TIMES_QUERY);
   if (loading) {
     returnValue.loading = loading;
   }
   if (data) {
     returnValue.data = data;
+    returnValue.refetch = refetch;
   }
   return returnValue;
 }

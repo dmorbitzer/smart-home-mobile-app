@@ -41,6 +41,8 @@
     "react-native-dropdown-picker": "^5.4.6",
     "react-native-paper": "^5.7.0",
     "react-native-paper-dates": "^0.16.1",
+    "react-native-root-siblings": "^4.1.1",
+    "react-native-root-toast": "^3.4.1",
     "react-native-web": "~0.18.10",
     "react-test-renderer": "^18.2.0"
   },

@@ -7,6 +7,7 @@ export const FEEDING_TIMES_QUERY = gql`
         node {
           id
           cat {
+            id
             name
           }
           food {

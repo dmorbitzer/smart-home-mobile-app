@@ -19,6 +19,10 @@ export default function GetIcon(title) {
       return () => <Icon name="filter" color="black" size={size} />;
     case "Speichern":
       return () => <Icon name="content-save" color="black" size={size} />;
+    case "Food":
+      return () => (
+        <Icon name="silverware-fork-knife" color="black" size={size} />
+      );
     default:
       return "";
   }
