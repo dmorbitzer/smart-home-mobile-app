@@ -4,7 +4,7 @@ import { ScrollView, StyleSheet } from "react-native";
 
 import { useAddCatProfile } from "../api/CatProfiles";
 import { useGetGenders } from "../api/Gender";
-import GetIcon from "../api/GetIcon";
+import getIcon from "../api/getIcon";
 import GeneralInformation from "../components/cat-profiles/add-profile/GeneralInformation";
 import IconButton from "../components/util/IconButton";
 import Loading from "../components/util/Loading";
@@ -118,7 +118,7 @@ export default function AddCat({ navigation }) {
           title="Speichern"
           type="primary"
           func={saveCat}
-          icon={GetIcon("Speichern")}
+          icon={getIcon("Speichern")}
         />
       </Stack>
     </ScrollView>
