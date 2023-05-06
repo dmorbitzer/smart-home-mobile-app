@@ -35,6 +35,7 @@ export default function Details(props) {
           onTouchStart={() => {
             props.navigation.navigate("Fütterung", {
               catId: props.data.cat.id,
+              name: props.data.cat.name,
             });
           }}
         />

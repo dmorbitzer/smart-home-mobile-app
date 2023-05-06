@@ -11,7 +11,7 @@ import IconButton from "../components/util/IconButton";
 
 export default function AddFeedingTime({ route, navigation }) {
   const [open, setOpen] = useState(false);
-  const [selectedFood, setSelectedFood] = useState(null);
+  const [selectedFood, setSelectedFood] = useState("_");
   const [date, setDate] = useState(new Date());
   const [hasFoodPickerError, setFoodPickerError] = useState(false);
   const foodList = route.params.foodData.map((element) => {
@@ -19,7 +19,7 @@ export default function AddFeedingTime({ route, navigation }) {
   });
   const addFeedingTime = useAddFeedingTime();
   const submitAddFeedingTime = () => {
-    if (selectedFood) {
+    if (selectedFood !== "_") {
       const time = date.getHours() + ":" + date.getMinutes() + ":00";
       addFeedingTime(
         route.params.catId,
@@ -30,6 +30,7 @@ export default function AddFeedingTime({ route, navigation }) {
       navigation.navigate("Fütterung", {
         name: route.params.catName,
         catId: route.params.catId,
+        weekDay: route.params.weekDay,
       });
     } else {
       setFoodPickerError(true);

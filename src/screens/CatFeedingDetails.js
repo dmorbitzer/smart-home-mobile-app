@@ -1,5 +1,5 @@
 import { Stack } from "@react-native-material/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RefreshControl, ScrollView, StyleSheet } from "react-native";
 import Toast from "react-native-root-toast";
 
@@ -10,12 +10,19 @@ import Details from "../components/cat-feeding/Details";
 import Loading from "../components/util/Loading";
 
 export default function CatFeedingDetails({ route, navigation }) {
+  const [weekDay, setWeekDay] = useState(null);
   const [refreshing, setRefreshing] = useState(false);
   const getFeedingTimes = useGetFeedingTimes();
   const getFood = useGetFood();
   const feedCat = useFeedNow();
   const deleteFeedingTime = useDeleteFeedingTime();
 
+  useEffect(() => {
+    if (route.params.weekDay) {
+      setWeekDay(route.params.weekDay);
+      route.params.weekDay = null;
+    }
+  });
   const onDeleteFeedingTime = (feedingTimeId) => {
     deleteFeedingTime(feedingTimeId);
     Toast.show("Fütterungszeit wurde gelöscht!", {
@@ -56,6 +63,8 @@ export default function CatFeedingDetails({ route, navigation }) {
           feedingTimesData={getFeedingTimes.data.feedingTimes.edges}
           onFeedNowClick={onFeedNowClick}
           navigation={navigation}
+          weekDay={weekDay}
+          setWeekDay={setWeekDay}
         />
       </ScrollView>
     </Stack>

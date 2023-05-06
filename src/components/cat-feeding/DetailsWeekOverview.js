@@ -1,6 +1,6 @@
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { IconButton, HStack } from "@react-native-material/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function DetailsWeekOverview(props) {
   const [mondayIcon, setMondayIcon] = useState("alpha-m");
@@ -10,7 +10,6 @@ export default function DetailsWeekOverview(props) {
   const [fridayIcon, setFridayIcon] = useState("alpha-f");
   const [saturdayIcon, setSaturdayIcon] = useState("alpha-s");
   const [sundayIcon, setSundayIcon] = useState("alpha-s");
-
   const unSet = () => {
     setMondayIcon("alpha-m");
     setTuesdayIcon("alpha-d");
@@ -21,62 +20,82 @@ export default function DetailsWeekOverview(props) {
     setSundayIcon("alpha-s");
   };
 
+  const set = (weekDay) => {
+    props.setWeekDay(weekDay);
+    unSet();
+    switch (weekDay) {
+      case 1:
+        setMondayIcon("alpha-m-circle-outline");
+        return;
+      case 2:
+        setTuesdayIcon("alpha-d-circle-outline");
+        return;
+      case 3:
+        setWednesdayIcon("alpha-m-circle-outline");
+        return;
+      case 4:
+        setThursdayIcon("alpha-d-circle-outline");
+        return;
+      case 5:
+        setFridayIcon("alpha-f-circle-outline");
+        return;
+      case 6:
+        setSaturdayIcon("alpha-s-circle-outline");
+        return;
+      case 7:
+        setSundayIcon("alpha-s-circle-outline");
+        return;
+      default:
+        unSet();
+    }
+  };
+  useEffect(() => {
+    if (props.weekDay) {
+      set(props.weekDay);
+    }
+  });
   return (
     <>
       <HStack fill center spacing={3}>
         <IconButton
           onTouchStart={() => {
-            props.setWeekDay(1);
-            unSet();
-            setMondayIcon("alpha-m-circle-outline");
+            set(1);
           }}
           icon={() => <Icon color="lightblue" size={30} name={mondayIcon} />}
         />
         <IconButton
           onTouchStart={() => {
-            props.setWeekDay(2);
-            unSet();
-            setTuesdayIcon("alpha-d-circle-outline");
+            set(2);
           }}
           icon={() => <Icon color="lightblue" size={30} name={tuesdayIcon} />}
         />
         <IconButton
           onTouchStart={() => {
-            props.setWeekDay(3);
-            unSet();
-            setWednesdayIcon("alpha-m-circle-outline");
+            set(3);
           }}
           icon={() => <Icon color="lightblue" size={30} name={wednesdayIcon} />}
         />
         <IconButton
           onTouchStart={() => {
-            props.setWeekDay(4);
-            unSet();
-            setThursdayIcon("alpha-d-circle-outline");
+            set(4);
           }}
           icon={() => <Icon color="lightblue" size={30} name={thursdayIcon} />}
         />
         <IconButton
           onTouchStart={() => {
-            props.setWeekDay(5);
-            unSet();
-            setFridayIcon("alpha-f-circle-outline");
+            set(5);
           }}
           icon={() => <Icon color="lightblue" size={30} name={fridayIcon} />}
         />
         <IconButton
           onTouchStart={() => {
-            props.setWeekDay(6);
-            unSet();
-            setSaturdayIcon("alpha-s-circle-outline");
+            set(6);
           }}
           icon={() => <Icon color="lightblue" size={30} name={saturdayIcon} />}
         />
         <IconButton
           onTouchStart={() => {
-            props.setWeekDay(7);
-            unSet();
-            setSundayIcon("alpha-s-circle-outline");
+            set(7);
           }}
           icon={() => <Icon color="lightblue" size={30} name={sundayIcon} />}
         />

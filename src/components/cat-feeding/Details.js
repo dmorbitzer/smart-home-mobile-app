@@ -16,9 +16,9 @@ import FeedingTimeList from "./FeedingTimeList";
 import DeleteFeedingTimeModal from "./delete-modal/DeleteFeedingTimeModal";
 
 export default function Details(props) {
-  const [weekDay, setWeekDay] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [toDeleteFeedingTimeId, setToDeleteFeedingTimeId] = useState(null);
+
   const openModal = () => {
     setShowModal(true);
   };
@@ -42,7 +42,10 @@ export default function Details(props) {
         navigation={props.navigation}
       />
       <Divider style={{ margin: 20 }} />
-      <DetailsWeekOverview setWeekDay={setWeekDay} />
+      <DetailsWeekOverview
+        weekDay={props.weekDay}
+        setWeekDay={props.setWeekDay}
+      />
       <Divider style={{ margin: 20 }} />
       <HStack>
         <Text style={{ marginLeft: 20, marginTop: 11 }} variant="h5">
@@ -51,9 +54,9 @@ export default function Details(props) {
         <Spacer />
         <MuiIconButton
           onTouchStart={() => {
-            if (weekDay) {
+            if (props.weekDay) {
               props.navigation.navigate("NewFeedingTime", {
-                weekDay,
+                weekDay: props.weekDay,
                 catName: props.catName,
                 catId: props.catId,
                 foodData: props.foodData,
@@ -69,7 +72,7 @@ export default function Details(props) {
       </HStack>
       <FeedingTimeList
         feedingTimeLongClick={feedingTimeLongClick}
-        weekDay={weekDay}
+        weekDay={props.weekDay}
         feedingTimesData={props.feedingTimesData}
         catName={props.catName}
         catId={props.catId}
