@@ -23,7 +23,7 @@ export function GetCatProfiles() {
 }
 
 // Funktion um die Details zu einem Katzenprofil zu laden
-export function GetCatDetails(searchId) {
+export function useGetCatDetails(searchId) {
   const returnValue = { data: null, loading: null };
   const { data, loading, refetch } = useQuery(CatDetailsQuery, {
     variables: { id: searchId },
@@ -85,29 +85,22 @@ export function useDeleteCatProfile() {
 }
 
 // Funktion um ein verändertes Katzenprofil zu speichern
-export function EditCatProfile(id, name, birthdate, weight, race, gender) {
-  const returnValue = { data: null, loading: null };
-  const [runMutation, { data, loading }] = useMutation(
-    UpdateCatProfileMutation
-  );
-  runMutation({
-    variables: {
-      input: {
-        id,
-        name,
-        birthdate,
-        weight,
-        race,
-        gender,
+export function useEditCatProfile(id, name, birthdate, weight, race, gender) {
+  const [runMutation] = useMutation(UpdateCatProfileMutation);
+  return async (id, name, birthdate, weight, race, gender) => {
+    const response = await runMutation({
+      variables: {
+        input: {
+          id,
+          name,
+          birthdate,
+          weight,
+          race,
+          gender,
+        },
       },
-    },
-  }).then(() => {
-    if (loading) {
-      returnValue.loading = loading;
-    }
-    if (data) {
-      returnValue.data = data;
-    }
-    return returnValue;
-  });
+    });
+
+    return response;
+  };
 }

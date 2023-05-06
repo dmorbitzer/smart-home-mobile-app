@@ -89,6 +89,7 @@ export default function App() {
                       onPress={() =>
                         navigation.navigate("Katzenbearbeitung", {
                           id: route.params.catId,
+                          test: route.params.test,
                         })
                       }
                       icon={() => <Icon name="border-color" size={25} />}

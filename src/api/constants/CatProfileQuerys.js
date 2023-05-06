@@ -54,6 +54,7 @@ export const CatDetailsQuery = gql`
       name
       birthdate
       gender {
+        id
         name
       }
       race
