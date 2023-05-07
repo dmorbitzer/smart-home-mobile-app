@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import ChooseFoodModal from "./cat-feeding-modals/ChooseFoodModal";
-import GetIcon from "../../api/GetIcon";
+import getIcon from "../../api/getIcon";
 import IconButton from "../util/IconButton";
 
 export default function CatFeedingManual(props) {
@@ -11,7 +11,7 @@ export default function CatFeedingManual(props) {
   };
   const CloseModalHandler = (selectedFood) => {
     if (selectedFood) {
-      const catId = props.feedingTimesData.cat.id.replace("/api/cats/", "");
+      const catId = props.catId.replace("/api/cats/", "");
       const foodId = selectedFood.replace("/api/food/", "");
       props.onFeedNowClick(catId, foodId);
     }
@@ -27,7 +27,7 @@ export default function CatFeedingManual(props) {
         func={() => {
           openModal();
         }}
-        icon={GetIcon("Food")}
+        icon={getIcon("Food")}
       />
       <ChooseFoodModal
         foodData={props.foodData}

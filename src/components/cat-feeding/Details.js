@@ -32,6 +32,7 @@ export default function Details(props) {
         feedingTimesData={props.feedingTimesData}
         foodData={props.foodData}
         navigation={props.navigation}
+        catId={props.catId}
       />
       <Divider style={{ margin: 20 }} />
       <DetailsWeekOverview

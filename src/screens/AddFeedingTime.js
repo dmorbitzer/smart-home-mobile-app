@@ -6,7 +6,7 @@ import DropDownPicker from "react-native-dropdown-picker";
 import { HelperText } from "react-native-paper";
 
 import { useAddFeedingTime } from "../api/FeedingTimes";
-import GetIcon from "../api/GetIcon";
+import getIcon from "../api/getIcon";
 import IconButton from "../components/util/IconButton";
 
 export default function AddFeedingTime({ route, navigation }) {
@@ -71,7 +71,7 @@ export default function AddFeedingTime({ route, navigation }) {
           title="Speichern"
           func={() => submitAddFeedingTime()}
           type="primary"
-          icon={GetIcon("Speichern")}
+          icon={getIcon("Speichern")}
         />
       </View>
     </>

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { View } from "react-native";
 
 import LogFilterModal from "./LogFilterModal";
-import GetIcon from "../../api/GetIcon";
+import getIcon from "../../api/getIcon";
 import IconButton from "../util/IconButton";
 
 export default function Services(props) {
@@ -21,7 +21,7 @@ export default function Services(props) {
       <IconButton
         title="Filter"
         type="secondary"
-        icon={GetIcon("Filter")}
+        icon={getIcon("Filter")}
         func={openModal}
       />
       <LogFilterModal

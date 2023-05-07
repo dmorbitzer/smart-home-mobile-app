@@ -1,6 +1,6 @@
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
-export default function GetIcon(title) {
+export default function getIcon(title) {
   const size = 25;
   switch (title) {
     case "Katzenprofil":
@@ -23,6 +23,10 @@ export default function GetIcon(title) {
       return () => (
         <Icon name="silverware-fork-knife" color="black" size={size} />
       );
+    case "Logout":
+      return () => <Icon name="logout" color="black" size={size} />;
+    case "Login":
+      return () => <Icon name="login" color="black" size={size} />;
     default:
       return "";
   }
