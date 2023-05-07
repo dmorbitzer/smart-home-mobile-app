@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import ChooseFoodModal from "./food-modal/ChooseFoodModal";
+import ChooseFoodModal from "./cat-feeding-modals/ChooseFoodModal";
 import GetIcon from "../../api/GetIcon";
 import IconButton from "../util/IconButton";
 

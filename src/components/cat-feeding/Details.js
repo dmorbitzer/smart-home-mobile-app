@@ -1,19 +1,11 @@
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-import {
-  Text,
-  Box,
-  Divider,
-  HStack,
-  IconButton as MuiIconButton,
-  Spacer,
-} from "@react-native-material/core";
+import { Text, Box, Divider } from "@react-native-material/core";
 import { useState } from "react";
-import Toast from "react-native-root-toast";
 
 import CatFeedingManual from "./CatFeedingManual";
 import DetailsWeekOverview from "./DetailsWeekOverview";
+import FeedingTimeHeader from "./FeedingTimeHeader";
 import FeedingTimeList from "./FeedingTimeList";
-import DeleteFeedingTimeModal from "./delete-modal/DeleteFeedingTimeModal";
+import DeleteFeedingTimeModal from "./cat-feeding-modals/DeleteFeedingTimeModal";
 
 export default function Details(props) {
   const [showModal, setShowModal] = useState(false);
@@ -47,29 +39,14 @@ export default function Details(props) {
         setWeekDay={props.setWeekDay}
       />
       <Divider style={{ margin: 20 }} />
-      <HStack>
-        <Text style={{ marginLeft: 20, marginTop: 11 }} variant="h5">
-          Fütterungszeiten
-        </Text>
-        <Spacer />
-        <MuiIconButton
-          onTouchStart={() => {
-            if (props.weekDay) {
-              props.navigation.navigate("NewFeedingTime", {
-                weekDay: props.weekDay,
-                catName: props.catName,
-                catId: props.catId,
-                foodData: props.foodData,
-              });
-            } else {
-              Toast.show("Bitte zuerst einen Wochentag wählen!", {
-                duration: Toast.durations.SHORT,
-              });
-            }
-          }}
-          icon={() => <Icon size={20} name="plus" />}
-        />
-      </HStack>
+      <FeedingTimeHeader
+        navigation={props.navigation}
+        weekDay={props.weekDay}
+        catId={props.catId}
+        catName={props.catName}
+        foodData={props.foodData}
+      />
+      <Divider style={{ margin: 20 }} />
       <FeedingTimeList
         feedingTimeLongClick={feedingTimeLongClick}
         weekDay={props.weekDay}
