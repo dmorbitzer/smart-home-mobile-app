@@ -1,6 +1,8 @@
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { Text, Box, ListItem } from "@react-native-material/core";
 
+import { formatStringToTime } from "../../api/DateTime";
+
 export default function FeedingTimeList(props) {
   const sortedFeedingTimeData = props.feedingTimesData
     .slice()
@@ -12,10 +14,7 @@ export default function FeedingTimeList(props) {
       element.node.cat.id === props.catId &&
       element.node.weekDay === props.weekDay
     ) {
-      const time = element.node.time
-        .replace("1970-01-01T", "")
-        .replace("+01:00", "")
-        .slice(0, -3);
+      const time = formatStringToTime(element.node.time);
       return (
         <ListItem
           key={element.node.id}
