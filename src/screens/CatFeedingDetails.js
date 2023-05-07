@@ -21,12 +21,19 @@ export default function CatFeedingDetails({ route, navigation }) {
     if (route.params.weekDay) {
       setWeekDay(route.params.weekDay);
       route.params.weekDay = null;
+      onRefresh();
+    } else if (!weekDay) {
+      const weekdayNumber = [7, 1, 2, 3, 4, 5, 6];
+      const curDay = new Date();
+      setWeekDay(weekdayNumber[curDay.getDay()]);
     }
   });
   const onDeleteFeedingTime = (feedingTimeId) => {
-    deleteFeedingTime(feedingTimeId);
-    Toast.show("Fütterungszeit wurde gelöscht!", {
-      duration: Toast.durations.LONG,
+    deleteFeedingTime(feedingTimeId).then(() => {
+      Toast.show("Fütterungszeit wurde gelöscht!", {
+        duration: Toast.durations.LONG,
+      });
+      onRefresh();
     });
   };
   const onFeedNowClick = (catId, foodId) => {

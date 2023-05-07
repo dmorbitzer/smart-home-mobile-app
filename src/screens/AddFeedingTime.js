@@ -26,11 +26,12 @@ export default function AddFeedingTime({ route, navigation }) {
         selectedFood,
         route.params.weekDay,
         time
-      );
-      navigation.navigate("Fütterung", {
-        name: route.params.catName,
-        catId: route.params.catId,
-        weekDay: route.params.weekDay,
+      ).then(() => {
+        navigation.navigate("Fütterung", {
+          name: route.params.catName,
+          catId: route.params.catId,
+          weekDay: route.params.weekDay,
+        });
       });
     } else {
       setFoodPickerError(true);
