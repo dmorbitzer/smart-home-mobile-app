@@ -2,7 +2,12 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { Text, Box, ListItem } from "@react-native-material/core";
 
 export default function FeedingTimeList(props) {
-  const feedingList = props.feedingTimesData.map((element) => {
+  const sortedFeedingTimeData = props.feedingTimesData
+    .slice()
+    .sort((a, b) =>
+      a.node.time > b.node.time ? 1 : b.node.time > a.node.time ? -1 : 0
+    );
+  const feedingList = sortedFeedingTimeData.map((element) => {
     if (
       element.node.cat.id === props.catId &&
       element.node.weekDay === props.weekDay
