@@ -10,96 +10,78 @@ export default function DetailsWeekOverview(props) {
   const [fridayIcon, setFridayIcon] = useState("alpha-f");
   const [saturdayIcon, setSaturdayIcon] = useState("alpha-s");
   const [sundayIcon, setSundayIcon] = useState("alpha-s");
-  const unSet = () => {
-    setMondayIcon("alpha-m");
-    setTuesdayIcon("alpha-d");
-    setWednesdayIcon("alpha-m");
-    setThursdayIcon("alpha-d");
-    setFridayIcon("alpha-f");
-    setSaturdayIcon("alpha-s");
-    setSundayIcon("alpha-s");
+  const weekDayInitial = ["m", "d", "m", "d", "f", "s", "s"];
+  const setWeekDayArray = [
+    setMondayIcon,
+    setTuesdayIcon,
+    setWednesdayIcon,
+    setThursdayIcon,
+    setFridayIcon,
+    setSaturdayIcon,
+    setSundayIcon,
+  ];
+  const unSetWeekdayIcon = () => {
+    for (let i = 0; i < setWeekDayArray.length; i++) {
+      setWeekDayArray[i](`alpha-${weekDayInitial[i]}`);
+    }
   };
 
-  const set = (weekDay) => {
+  const setWeekdayIcon = (weekDay) => {
     props.setWeekDay(weekDay);
-    unSet();
-    switch (weekDay) {
-      case 1:
-        setMondayIcon("alpha-m-circle-outline");
-        return;
-      case 2:
-        setTuesdayIcon("alpha-d-circle-outline");
-        return;
-      case 3:
-        setWednesdayIcon("alpha-m-circle-outline");
-        return;
-      case 4:
-        setThursdayIcon("alpha-d-circle-outline");
-        return;
-      case 5:
-        setFridayIcon("alpha-f-circle-outline");
-        return;
-      case 6:
-        setSaturdayIcon("alpha-s-circle-outline");
-        return;
-      case 7:
-        setSundayIcon("alpha-s-circle-outline");
-        return;
-      default:
-        unSet();
-    }
+    unSetWeekdayIcon();
+    setWeekDayArray[weekDay - 1](
+      `alpha-${weekDayInitial[weekDay - 1]}-circle-outline`
+    );
   };
   useEffect(() => {
     if (props.weekDay) {
-      set(props.weekDay);
+      setWeekdayIcon(props.weekDay);
     }
   });
   return (
-    <>
-      <HStack fill center spacing={3}>
-        <IconButton
-          onTouchStart={() => {
-            set(1);
-          }}
-          icon={() => <Icon color="lightblue" size={30} name={mondayIcon} />}
-        />
-        <IconButton
-          onTouchStart={() => {
-            set(2);
-          }}
-          icon={() => <Icon color="lightblue" size={30} name={tuesdayIcon} />}
-        />
-        <IconButton
-          onTouchStart={() => {
-            set(3);
-          }}
-          icon={() => <Icon color="lightblue" size={30} name={wednesdayIcon} />}
-        />
-        <IconButton
-          onTouchStart={() => {
-            set(4);
-          }}
-          icon={() => <Icon color="lightblue" size={30} name={thursdayIcon} />}
-        />
-        <IconButton
-          onTouchStart={() => {
-            set(5);
-          }}
-          icon={() => <Icon color="lightblue" size={30} name={fridayIcon} />}
-        />
-        <IconButton
-          onTouchStart={() => {
-            set(6);
-          }}
-          icon={() => <Icon color="lightblue" size={30} name={saturdayIcon} />}
-        />
-        <IconButton
-          onTouchStart={() => {
-            set(7);
-          }}
-          icon={() => <Icon color="lightblue" size={30} name={sundayIcon} />}
-        />
-      </HStack>
-    </>
+    <HStack fill center spacing={3}>
+      <IconButton
+        onTouchStart={() => {
+          setWeekdayIcon(1);
+        }}
+        icon={() => <Icon color="lightblue" size={30} name={mondayIcon} />}
+      />
+      <IconButton
+        onTouchStart={() => {
+          setWeekdayIcon(2);
+        }}
+        icon={() => <Icon color="lightblue" size={30} name={tuesdayIcon} />}
+      />
+      <IconButton
+        onTouchStart={() => {
+          setWeekdayIcon(3);
+        }}
+        icon={() => <Icon color="lightblue" size={30} name={wednesdayIcon} />}
+      />
+      <IconButton
+        onTouchStart={() => {
+          setWeekdayIcon(4);
+        }}
+        icon={() => <Icon color="lightblue" size={30} name={thursdayIcon} />}
+      />
+      <IconButton
+        onTouchStart={() => {
+          setWeekdayIcon(5);
+        }}
+        icon={() => <Icon color="lightblue" size={30} name={fridayIcon} />}
+      />
+      <IconButton
+        onTouchStart={() => {
+          setWeekdayIcon(6);
+        }}
+        icon={() => <Icon color="lightblue" size={30} name={saturdayIcon} />}
+      />
+      <IconButton
+        onTouchStart={() => {
+          setWeekdayIcon(7);
+        }}
+        icon={() => <Icon color="lightblue" size={30} name={sundayIcon} />}
+      />
+    </HStack>
   );
 }
