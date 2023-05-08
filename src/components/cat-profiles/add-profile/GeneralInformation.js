@@ -60,7 +60,9 @@ export default function GeneralInformation(props) {
           items={genderItems}
           setOpen={setOpen}
           setValue={props.setCatSex}
-          placeholder="Geschlecht wählen"
+          placeholder={
+            props.placeholder ? props.placeholder : "Geschlecht wählen"
+          }
           containerStyle={styles.input}
           style={{ backgroundColor: theme.colors.background }}
           listItemContainerStyle={{ backgroundColor: theme.colors.background }}
