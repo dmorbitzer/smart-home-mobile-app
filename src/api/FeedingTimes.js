@@ -35,51 +35,39 @@ export function useGetFeedingTimeDetails(id) {
   return returnValue;
 }
 
-export function useAddFeedingTime(catId, foodId, weekDay, time) {
-  const returnValue = { data: null, loading: null };
+export function useAddFeedingTime() {
   const [runMutation, { data, loading }] = useMutation(
     ADD_FEEDING_TIME_MUTATION
   );
-  runMutation({
-    variables: {
-      input: {
-        cat: catId,
-        food: foodId,
-        weekDay,
-        time,
+  return async function (catId, foodId, weekDay, time) {
+    await runMutation({
+      variables: {
+        input: {
+          cat: catId,
+          food: foodId,
+          weekDay,
+          time,
+        },
       },
-    },
-  }).then(() => {
-    if (loading) {
-      returnValue.loading = loading;
-    }
-    if (data) {
-      returnValue.data = data;
-    }
-    return returnValue;
-  });
+    });
+    return { data, loading };
+  };
 }
 
-export function useDeleteFeedingTime(feedingTimeId) {
-  const returnValue = { data: null, loading: null };
+export function useDeleteFeedingTime() {
   const [runMutation, { data, loading }] = useMutation(
     DELETE_FEEDING_TIME_MUTATION
   );
-  runMutation({
-    variables: {
-      input: {
-        id: feedingTimeId,
+  return async function (inputId) {
+    await runMutation({
+      variables: {
+        input: {
+          id: inputId,
+        },
       },
-    },
-  }).then(() => {
-    if (loading) {
-      returnValue.loading = loading;
-    }
-    if (data) {
-      returnValue.data = data;
-    }
-    return returnValue;
-  });
+    });
+    return { data, loading };
+  };
 }
 
 export function useUpdateFeedingTime(

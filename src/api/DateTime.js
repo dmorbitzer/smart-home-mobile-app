@@ -9,3 +9,10 @@ export function formatDateTime(dateTime) {
     dateTime.toLocaleTimeString("de-DE")
   );
 }
+
+export function formatStringToTime(timeString) {
+  return new Date(timeString).toLocaleTimeString("de-DE", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}

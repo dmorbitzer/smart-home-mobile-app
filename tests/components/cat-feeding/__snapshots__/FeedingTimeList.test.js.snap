@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders FeedingTime List correctly 1`] = `
+<Text
+  style={
+    [
+      {
+        "fontSize": 16,
+        "letterSpacing": 0.5,
+      },
+      {
+        "color": "#000000",
+      },
+      {
+        "alignSelf": "center",
+        "marginTop": 15,
+      },
+    ]
+  }
+>
+  Keine Fütterungen an diesem Wochentag!
+</Text>
+`;

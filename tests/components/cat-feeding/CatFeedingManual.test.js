@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import Details from "../../../src/components/cat-feeding/Details";
+import CatFeedingManual from "../../../src/components/cat-feeding/CatFeedingManual";
 jest.useFakeTimers();
 const navigation = null;
 const localFoodData = {
@@ -66,10 +66,10 @@ const onFeedNowClick = (catId, foodId) => {
 test("renders cat-feeding-manual correctly", () => {
   const tree = renderer
     .create(
-      <Details
-        foodData={localFoodData.data.food.edges}
-        feedingTimesData={localFeedingTimesData.data.feedingTimes.edges[0].node}
+      <CatFeedingManual
         onFeedNowClick={onFeedNowClick}
+        feedingTimesData={localFeedingTimesData}
+        foodData={localFoodData.data.food.edges}
         navigation={navigation}
       />
     )
