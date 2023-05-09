@@ -2,13 +2,13 @@ import { Stack } from "@react-native-material/core";
 import { useState } from "react";
 import { RefreshControl, ScrollView, StyleSheet } from "react-native";
 
-import { GetCatProfiles } from "../api/CatProfiles";
+import { useGetCatProfiles } from "../api/CatProfiles";
 import Profiles from "../components/cat-profiles/Profiles";
 import Loading from "../components/util/Loading";
 
 export default function CatFeeding({ navigation }) {
   const [refreshing, setRefreshing] = useState(false);
-  const getData = GetCatProfiles();
+  const getData = useGetCatProfiles();
 
   const onRefresh = () => {
     setRefreshing(true);

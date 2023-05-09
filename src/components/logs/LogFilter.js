@@ -6,7 +6,7 @@ import LogFilterModal from "./LogFilterModal";
 import getIcon from "../../api/getIcon";
 import IconButton from "../util/IconButton";
 
-export default function Services(props) {
+export default function LogFilter(props) {
   const [showModal, setShowModal] = useState(false);
   const openModal = () => {
     setShowModal(true);

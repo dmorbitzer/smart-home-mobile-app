@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const AddCatProfileMutation = gql`
+export const ADD_CAT_PROFILE_MUTATION = gql`
   mutation AddCat($input: createCatInput!) {
     createCat(input: $input) {
       cat {
@@ -18,7 +18,7 @@ export const AddCatProfileMutation = gql`
   }
 `;
 
-export const DeleteCatProfileMutation = gql`
+export const DELETE_CAT_PROFILE_MUTATION = gql`
   mutation DeleteCat($input: deleteWithFeedingTimesCatInput!) {
     deleteWithFeedingTimesCat(input: $input) {
       cat {
@@ -29,7 +29,7 @@ export const DeleteCatProfileMutation = gql`
   }
 `;
 
-export const UpdateCatProfileMutation = gql`
+export const UPDATE_CAT_PROFILE_MUTATION = gql`
   mutation UpdateCat($input: updateCatInput!) {
     updateCat(input: $input) {
       cat {
@@ -47,7 +47,7 @@ export const UpdateCatProfileMutation = gql`
   }
 `;
 
-export const CatDetailsQuery = gql`
+export const CAT_DETAILS_QUERY = gql`
   query CatDetailsQuery($id: ID!) {
     cat(id: $id) {
       id
@@ -63,7 +63,7 @@ export const CatDetailsQuery = gql`
   }
 `;
 
-export const CatProfilesQuery = gql`
+export const CAT_PROFILE_QUERY = gql`
   {
     cats {
       edges {

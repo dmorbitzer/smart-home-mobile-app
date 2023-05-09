@@ -9,7 +9,7 @@ export default function CatFeedingManual(props) {
   const openModal = () => {
     setShowModal(true);
   };
-  const CloseModalHandler = (selectedFood) => {
+  const closeModalHandler = (selectedFood) => {
     if (selectedFood) {
       const catId = props.catId.replace("/api/cats/", "");
       const foodId = selectedFood.replace("/api/food/", "");
@@ -33,7 +33,7 @@ export default function CatFeedingManual(props) {
         foodData={props.foodData}
         navigation={props.navigation}
         showModal={showModal}
-        closeModalHandler={CloseModalHandler}
+        closeModalHandler={closeModalHandler}
       />
     </>
   );

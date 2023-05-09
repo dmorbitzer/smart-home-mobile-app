@@ -1,17 +1,16 @@
 import { useQuery, useMutation } from "@apollo/client";
 
 import {
-  AddCatProfileMutation,
-  CatDetailsQuery,
-  CatProfilesQuery,
-  DeleteCatProfileMutation,
-  UpdateCatProfileMutation,
+  ADD_CAT_PROFILE_MUTATION,
+  CAT_DETAILS_QUERY,
+  CAT_PROFILE_QUERY,
+  DELETE_CAT_PROFILE_MUTATION,
+  UPDATE_CAT_PROFILE_MUTATION,
 } from "./constants/CatProfileQuerys";
 
-// Funktion um bestehende Katzenprofile abzurufen
-export function GetCatProfiles() {
+export function useGetCatProfiles() {
   const returnValue = { data: null, loading: null };
-  const { data, loading, refetch } = useQuery(CatProfilesQuery);
+  const { data, loading, refetch } = useQuery(CAT_PROFILE_QUERY);
   if (loading) {
     returnValue.loading = loading;
   }
@@ -22,10 +21,9 @@ export function GetCatProfiles() {
   return returnValue;
 }
 
-// Funktion um die Details zu einem Katzenprofil zu laden
 export function useGetCatDetails(searchId) {
   const returnValue = { data: null, loading: null };
-  const { data, loading, refetch } = useQuery(CatDetailsQuery, {
+  const { data, loading, refetch } = useQuery(CAT_DETAILS_QUERY, {
     variables: { id: searchId },
   });
   if (loading) {
@@ -38,9 +36,8 @@ export function useGetCatDetails(searchId) {
   return returnValue;
 }
 
-// Funktion um ein neues Katzenprofil zu speichern
 export function useAddCatProfile() {
-  const [runMutation] = useMutation(AddCatProfileMutation);
+  const [runMutation] = useMutation(ADD_CAT_PROFILE_MUTATION);
 
   return async (name, birthdate, weight, race, gender) => {
     const response = await runMutation({
@@ -59,11 +56,10 @@ export function useAddCatProfile() {
   };
 }
 
-// Funktion um einzelne Katzenprofile zu löschen
 export function useDeleteCatProfile() {
   const returnValue = { data: null, loading: null };
   const [runMutation, { data, loading }] = useMutation(
-    DeleteCatProfileMutation
+    DELETE_CAT_PROFILE_MUTATION
   );
   return function (inputId) {
     runMutation({
@@ -84,9 +80,8 @@ export function useDeleteCatProfile() {
   };
 }
 
-// Funktion um ein verändertes Katzenprofil zu speichern
-export function useEditCatProfile(id, name, birthdate, weight, race, gender) {
-  const [runMutation] = useMutation(UpdateCatProfileMutation);
+export function useEditCatProfile() {
+  const [runMutation] = useMutation(UPDATE_CAT_PROFILE_MUTATION);
   return async (id, name, birthdate, weight, race, gender) => {
     const response = await runMutation({
       variables: {
