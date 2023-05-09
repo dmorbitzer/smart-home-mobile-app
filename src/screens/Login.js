@@ -5,7 +5,7 @@ import { BackHandler } from "react-native";
 import useLogin from "../api/useLogin";
 import LoginForm from "../components/login/LoginForm";
 
-export default function ({ navigation }) {
+export default function Login({ navigation }) {
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
       "hardwareBackPress",
