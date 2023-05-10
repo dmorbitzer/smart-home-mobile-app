@@ -1,10 +1,11 @@
-import DateTimePicker from "@react-native-community/datetimepicker";
-import { Divider } from "@react-native-material/core";
-import { useState } from "react";
+import { Text, Divider } from "@react-native-material/core";
+import { useCallback, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 import { HelperText } from "react-native-paper";
+import { TimePickerModal } from "react-native-paper-dates";
 
+import { formatStringToTime } from "../api/DateTime";
 import { useAddFeedingTime } from "../api/FeedingTimes";
 import getIcon from "../api/getIcon";
 import IconButton from "../components/util/IconButton";
@@ -37,19 +38,38 @@ export default function AddFeedingTime({ route, navigation }) {
       setFoodPickerError(true);
     }
   };
-  const useTime = (event, date) => {
-    setDate(date);
-  };
+
+  const [visible, setVisible] = useState(false);
+  const onDismiss = useCallback(() => {
+    setVisible(false);
+  }, [setVisible]);
+  const onConfirm = useCallback(
+    ({ hours, minutes }) => {
+      setVisible(false);
+      const d = new Date(new Date().setHours(hours, minutes));
+      setDate(d);
+    },
+    [setVisible]
+  );
   return (
     <>
-      <DateTimePicker
-        style={{ alignSelf: "center", marginTop: 15 }}
-        mode="time"
-        value={date}
-        onChange={useTime}
-        display="spinner"
-        themeVariant="light"
-      />
+      <View style={{ justifyContent: "center", flex: 1, alignItems: "center" }}>
+        <IconButton
+          title="Zeit auswählen"
+          func={() => setVisible(true)}
+          type="primary"
+          icon={getIcon("Time")}
+        />
+        <Text variant="h3" style={{ marginTop: 50 }}>
+          {formatStringToTime(date.toString())}
+        </Text>
+        <TimePickerModal
+          label="Bitte Zeit wählen"
+          visible={visible}
+          onDismiss={onDismiss}
+          onConfirm={onConfirm}
+        />
+      </View>
       <Divider style={{ margin: 20 }} />
       <View style={styles.dropdownView}>
         <DropDownPicker
