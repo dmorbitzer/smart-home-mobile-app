@@ -67,7 +67,13 @@ export default function App() {
               <Stack.Screen
                 name="LandingPage"
                 component={MainMenu}
-                options={{ title: "Main Menu" }}
+                options={{
+                  title: "Main Menu",
+                  headerLeft: null,
+                  headerBackTitleVisible: false,
+                  headerBackVisible: false,
+                  gestureEnabled: false,
+                }}
               />
               <Stack.Screen
                 name="Katzenprofil"
