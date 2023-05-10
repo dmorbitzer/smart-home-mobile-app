@@ -54,20 +54,13 @@ export default function AddFeedingTime({ route, navigation }) {
   return (
     <>
       <View style={{ justifyContent: "center", flex: 1, alignItems: "center" }}>
+        <Text variant="h3">{formatStringToTime(date.toString())}</Text>
+        <HelperText type="info">Gewählte Fütterungszeit</HelperText>
         <IconButton
           title="Zeit auswählen"
           func={() => setVisible(true)}
           type="primary"
           icon={getIcon("Time")}
-        />
-        <Text variant="h3" style={{ marginTop: 50 }}>
-          {formatStringToTime(date.toString())}
-        </Text>
-        <TimePickerModal
-          label="Bitte Zeit wählen"
-          visible={visible}
-          onDismiss={onDismiss}
-          onConfirm={onConfirm}
         />
       </View>
       <Divider style={{ margin: 20 }} />
@@ -94,6 +87,12 @@ export default function AddFeedingTime({ route, navigation }) {
           icon={getIcon("Speichern")}
         />
       </View>
+      <TimePickerModal
+        label="Bitte Zeit wählen"
+        visible={visible}
+        onDismiss={onDismiss}
+        onConfirm={onConfirm}
+      />
     </>
   );
 }
