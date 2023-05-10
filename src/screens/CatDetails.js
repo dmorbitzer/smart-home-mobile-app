@@ -7,6 +7,9 @@ import Details from "../components/cat-profiles/Details";
 import Loading from "../components/util/Loading";
 
 export default function CatDetails({ route, navigation }) {
+  if (!global.jwt) {
+    navigation.navigate("Login");
+  }
   const [refreshing, setRefreshing] = useState(false);
   const getData = useGetCatDetails(route.params.catId);
   const deleteCat = useDeleteCatProfile();

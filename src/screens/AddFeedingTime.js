@@ -11,6 +11,9 @@ import getIcon from "../api/getIcon";
 import IconButton from "../components/util/IconButton";
 
 export default function AddFeedingTime({ route, navigation }) {
+  if (!global.jwt) {
+    navigation.navigate("Login");
+  }
   const [open, setOpen] = useState(false);
   const [selectedFood, setSelectedFood] = useState("_");
   const [date, setDate] = useState(new Date());
