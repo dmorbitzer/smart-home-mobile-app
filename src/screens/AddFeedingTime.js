@@ -11,6 +11,16 @@ import getIcon from "../api/getIcon";
 import IconButton from "../components/util/IconButton";
 
 export default function AddFeedingTime({ route, navigation }) {
+  const weekDayName = [
+    "",
+    "Montag",
+    "Dienstag",
+    "Mittwoch",
+    "Donnerstag",
+    "Freitag",
+    "Samstag",
+    "Sonntag",
+  ];
   const [open, setOpen] = useState(false);
   const [selectedFood, setSelectedFood] = useState("_");
   const [date, setDate] = useState(new Date());
@@ -53,7 +63,11 @@ export default function AddFeedingTime({ route, navigation }) {
   );
   return (
     <>
-      <View style={{ justifyContent: "center", flex: 1, alignItems: "center" }}>
+      <Text style={{ marginTop: 20, alignSelf: "center" }} variant="h2">
+        {weekDayName[route.params.weekDay]}
+      </Text>
+      <Divider style={{ margin: 20 }} />
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
         <Text variant="h3">{formatStringToTime(date.toString())}</Text>
         <HelperText type="info">Gewählte Fütterungszeit</HelperText>
         <IconButton

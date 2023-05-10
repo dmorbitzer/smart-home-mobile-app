@@ -26,6 +26,7 @@ export default function FeedingTimeList(props) {
           onLongPress={() => {
             props.feedingTimeLongClick(element.node.id);
           }}
+          delayLongPress={200}
         />
       );
     }
