@@ -9,6 +9,7 @@ import { formatStringToTime } from "../api/DateTime";
 import { useAddFeedingTime } from "../api/FeedingTimes";
 import getIcon from "../api/getIcon";
 import IconButton from "../components/util/IconButton";
+import Loading from "../components/util/Loading";
 
 export default function AddFeedingTime({ route, navigation }) {
   const weekDayName = [
@@ -22,6 +23,7 @@ export default function AddFeedingTime({ route, navigation }) {
     "Sonntag",
   ];
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [selectedFood, setSelectedFood] = useState("_");
   const [date, setDate] = useState(new Date());
   const [hasFoodPickerError, setFoodPickerError] = useState(false);
@@ -31,6 +33,7 @@ export default function AddFeedingTime({ route, navigation }) {
   const addFeedingTime = useAddFeedingTime();
   const submitAddFeedingTime = () => {
     if (selectedFood !== "_") {
+      setLoading(true);
       const time = date.getHours() + ":" + date.getMinutes() + ":00";
       addFeedingTime(
         route.params.catId,
@@ -61,6 +64,10 @@ export default function AddFeedingTime({ route, navigation }) {
     },
     [setVisible]
   );
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <>
       <Text style={{ marginTop: 20, alignSelf: "center" }} variant="h2">
