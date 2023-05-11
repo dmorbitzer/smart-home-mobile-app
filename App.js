@@ -51,7 +51,7 @@ export default function App() {
       surfaceVariant: "#ebebeb",
       onPrimaryContainer: "lightblue",
       primaryContainer: "#ebebeb",
-      secondaryContainer: "#ebebeb"
+      secondaryContainer: "#ebebeb",
     },
   };
 
@@ -62,12 +62,18 @@ export default function App() {
           <NavigationContainer>
             <Stack.Navigator
               screenOptions={{ headerStyle: { backgroundColor: "lightblue" } }}
-              initialRouteName="LandingPage"
+              initialRouteName="Login"
             >
               <Stack.Screen
                 name="LandingPage"
                 component={MainMenu}
-                options={{ title: "Main Menu" }}
+                options={{
+                  title: "Main Menu",
+                  headerLeft: null,
+                  headerBackTitleVisible: false,
+                  headerBackVisible: false,
+                  gestureEnabled: false,
+                }}
               />
               <Stack.Screen
                 name="Katzenprofil"

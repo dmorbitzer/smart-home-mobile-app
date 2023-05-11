@@ -7,6 +7,9 @@ import Profiles from "../components/cat-profiles/Profiles";
 import Loading from "../components/util/Loading";
 
 export default function CatProfiles({ route, navigation }) {
+  if (!global.jwt) {
+    navigation.navigate("Login");
+  }
   const [refreshing, setRefreshing] = useState(false);
   const getData = useGetCatProfiles();
 

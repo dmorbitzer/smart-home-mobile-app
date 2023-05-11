@@ -7,7 +7,10 @@ import LogFilter from "../components/logs/LogFilter";
 import LogList from "../components/logs/LogList";
 import Loading from "../components/util/Loading";
 
-export default function Logs() {
+export default function Logs({ navigation }) {
+  if (!global.jwt) {
+    navigation.navigate("Login");
+  }
   const [serviceFilter, setServiceFilter] = useState(null);
   const [dateFilter, setDateFilter] = useState(null);
   const [refreshing, setRefreshing] = useState(false);

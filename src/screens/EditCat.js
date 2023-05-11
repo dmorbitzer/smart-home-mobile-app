@@ -10,6 +10,9 @@ import IconButton from "../components/util/IconButton";
 import Loading from "../components/util/Loading";
 
 export default function EditCat({ route, navigation }) {
+  if (!global.jwt) {
+    navigation.navigate("Login");
+  }
   const catDetails = useGetCatDetails(route.params.id);
   const genders = useGetGenders();
   const editCat = useEditCatProfile();

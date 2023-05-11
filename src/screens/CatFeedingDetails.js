@@ -10,6 +10,9 @@ import Details from "../components/cat-feeding/Details";
 import Loading from "../components/util/Loading";
 
 export default function CatFeedingDetails({ route, navigation }) {
+  if (!global.jwt) {
+    navigation.navigate("Login");
+  }
   const [weekDay, setWeekDay] = useState(null);
   const [refreshing, setRefreshing] = useState(false);
   const getFeedingTimes = useGetFeedingTimes();

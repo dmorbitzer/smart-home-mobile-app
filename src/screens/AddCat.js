@@ -10,6 +10,9 @@ import IconButton from "../components/util/IconButton";
 import Loading from "../components/util/Loading";
 
 export default function AddCat({ navigation }) {
+  if (!global.jwt) {
+    navigation.navigate("Login");
+  }
   const addCat = useAddCatProfile();
   const genders = useGetGenders();
 
