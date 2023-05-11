@@ -48,6 +48,10 @@ export default function App() {
       primary: "lightblue",
       placeholder: "white",
       background: "#ebebeb",
+      surfaceVariant: "#ebebeb",
+      onPrimaryContainer: "lightblue",
+      primaryContainer: "#ebebeb",
+      secondaryContainer: "#ebebeb"
     },
   };
 
