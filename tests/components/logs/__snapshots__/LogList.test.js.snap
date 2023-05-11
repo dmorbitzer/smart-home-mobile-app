@@ -110,7 +110,7 @@ exports[`renders Loading correctly 1`] = `
                 ]
               }
             >
-              Katzenfütterung 21.4.2023 17:10:15
+              Katzenfütterung 21.8.2023 17:10:20
             </Text>
           </View>
           <Text
@@ -131,7 +131,7 @@ exports[`renders Loading correctly 1`] = `
               ]
             }
           >
-            Katze: Peter, Futter: Trockenfutter, Type: undefined
+            Katze: Paul, Futter: Trockenfutter, Type: undefined
           </Text>
         </View>
       </View>
@@ -250,7 +250,7 @@ exports[`renders Loading correctly 1`] = `
                 ]
               }
             >
-              Katzenfütterung 21.8.2023 17:10:20
+              Katzenfütterung 21.4.2023 17:10:15
             </Text>
           </View>
           <Text
@@ -271,7 +271,7 @@ exports[`renders Loading correctly 1`] = `
               ]
             }
           >
-            Katze: Paul, Futter: Trockenfutter, Type: undefined
+            Katze: Peter, Futter: Trockenfutter, Type: undefined
           </Text>
         </View>
       </View>
