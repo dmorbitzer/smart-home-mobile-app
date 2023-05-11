@@ -95,6 +95,7 @@ export default function AddFeedingTime({ route, navigation }) {
           setValue={setSelectedFood}
           placeholder="Futter auswählen"
           containerStyle={styles.dropdownContainer}
+          listMode="SCROLLVIEW"
         />
         <HelperText type="error" visible={hasFoodPickerError}>
           Kein Futter gewählt!
