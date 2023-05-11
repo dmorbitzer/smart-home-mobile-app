@@ -27,6 +27,8 @@ export default function getIcon(title) {
       return () => <Icon name="logout" color="black" size={size} />;
     case "Login":
       return () => <Icon name="login" color="black" size={size} />;
+    case "Time":
+      return () => <Icon name="clock-time-eight" color="black" size={size} />;
     default:
       return "";
   }
