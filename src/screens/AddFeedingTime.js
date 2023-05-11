@@ -122,6 +122,7 @@ export default function AddFeedingTime({ route, navigation }) {
 const styles = StyleSheet.create({
   dropdownContainer: {
     width: 200,
+    zIndex: 20,
   },
   dropdownView: {
     alignSelf: "center",
