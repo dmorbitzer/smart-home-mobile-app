@@ -9,12 +9,25 @@ import { formatStringToTime } from "../api/DateTime";
 import { useAddFeedingTime } from "../api/FeedingTimes";
 import getIcon from "../api/getIcon";
 import IconButton from "../components/util/IconButton";
+import Loading from "../components/util/Loading";
 
 export default function AddFeedingTime({ route, navigation }) {
   if (!global.jwt) {
     navigation.navigate("Login");
   }
+
+  const weekDayName = [
+    "",
+    "Montag",
+    "Dienstag",
+    "Mittwoch",
+    "Donnerstag",
+    "Freitag",
+    "Samstag",
+    "Sonntag",
+  ];
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [selectedFood, setSelectedFood] = useState("_");
   const [date, setDate] = useState(new Date());
   const [hasFoodPickerError, setFoodPickerError] = useState(false);
@@ -24,6 +37,7 @@ export default function AddFeedingTime({ route, navigation }) {
   const addFeedingTime = useAddFeedingTime();
   const submitAddFeedingTime = () => {
     if (selectedFood !== "_") {
+      setLoading(true);
       const time = date.getHours() + ":" + date.getMinutes() + ":00";
       addFeedingTime(
         route.params.catId,
@@ -54,9 +68,17 @@ export default function AddFeedingTime({ route, navigation }) {
     },
     [setVisible]
   );
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <>
-      <View style={{ justifyContent: "center", flex: 1, alignItems: "center" }}>
+      <Text style={{ marginTop: 20, alignSelf: "center" }} variant="h2">
+        {weekDayName[route.params.weekDay]}
+      </Text>
+      <Divider style={{ margin: 20 }} />
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
         <Text variant="h3">{formatStringToTime(date.toString())}</Text>
         <HelperText type="info">Gewählte Fütterungszeit</HelperText>
         <IconButton
@@ -77,6 +99,7 @@ export default function AddFeedingTime({ route, navigation }) {
           setValue={setSelectedFood}
           placeholder="Futter auswählen"
           containerStyle={styles.dropdownContainer}
+          listMode="SCROLLVIEW"
         />
         <HelperText type="error" visible={hasFoodPickerError}>
           Kein Futter gewählt!
@@ -103,6 +126,7 @@ export default function AddFeedingTime({ route, navigation }) {
 const styles = StyleSheet.create({
   dropdownContainer: {
     width: 200,
+    zIndex: 20,
   },
   dropdownView: {
     alignSelf: "center",
