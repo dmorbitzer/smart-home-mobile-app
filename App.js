@@ -51,7 +51,7 @@ export default function App() {
       surfaceVariant: "#ebebeb",
       onPrimaryContainer: "lightblue",
       primaryContainer: "#ebebeb",
-      secondaryContainer: "#ebebeb"
+      secondaryContainer: "#ebebeb",
     },
   };
 
